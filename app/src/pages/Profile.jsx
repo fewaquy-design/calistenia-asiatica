@@ -50,7 +50,7 @@ export default function Profile() {
             </div>
           </div>
           <div>
-            <h2 className="text-[17px] font-bold text-gray-900 tracking-tight">{user.nome || user.name || 'mikael Santos'}</h2>
+            <h2 className="text-[17px] font-bold text-gray-900 tracking-tight">{user.nome || user.name || 'Atleta'}</h2>
             <button className="text-[12px] text-[#cf5c76] font-medium mt-0.5">Editar nome</button>
           </div>
         </div>

@@ -18,10 +18,15 @@ export default function Login() {
     setLoading(true);
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const fbUser = userCredential.user;
       
       localStorage.setItem('isAuthenticated', 'true');
-      const user = JSON.parse(localStorage.getItem('calistenia_user'));
+      const user = JSON.parse(localStorage.getItem('calistenia_user') || '{}');
+      if (fbUser.displayName && !user.nome) {
+        user.nome = fbUser.displayName;
+        localStorage.setItem('calistenia_user', JSON.stringify(user));
+      }
       
       if (user && user.metaPeso) {
         navigate('/home');
@@ -44,10 +49,15 @@ export default function Login() {
     try {
       setLoading(true);
       setError('');
-      await signInWithPopup(auth, googleProvider);
+      const userCredential = await signInWithPopup(auth, googleProvider);
+      const fbUser = userCredential.user;
       
       localStorage.setItem('isAuthenticated', 'true');
       const user = JSON.parse(localStorage.getItem('calistenia_user') || '{}');
+      if (fbUser.displayName) {
+        user.nome = fbUser.displayName;
+        localStorage.setItem('calistenia_user', JSON.stringify(user));
+      }
       
       if (user && user.metaPeso) {
         navigate('/home');

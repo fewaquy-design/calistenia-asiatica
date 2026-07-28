@@ -54,10 +54,15 @@ export default function Register() {
     try {
       setLoading(true);
       setError('');
-      await signInWithPopup(auth, googleProvider);
+      const userCredential = await signInWithPopup(auth, googleProvider);
+      const fbUser = userCredential.user;
       
       localStorage.setItem('isAuthenticated', 'true');
       const user = JSON.parse(localStorage.getItem('calistenia_user') || '{}');
+      if (fbUser.displayName) {
+        user.nome = fbUser.displayName;
+        localStorage.setItem('calistenia_user', JSON.stringify(user));
+      }
       
       if (user && user.metaPeso) {
         navigate('/home');

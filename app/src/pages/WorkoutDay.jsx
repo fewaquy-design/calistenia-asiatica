@@ -63,7 +63,7 @@ export default function WorkoutDay() {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
-          handleNext();
+          // REMOVED handleNext() here so it does not auto-advance
           return 0;
         }
         return prev - 1;
@@ -180,7 +180,7 @@ export default function WorkoutDay() {
           <video 
             ref={videoRef}
             src={currentEx.video} 
-            className="absolute inset-0 w-full h-full object-cover" 
+            className="absolute inset-0 w-full h-full object-contain" 
             autoPlay 
             loop
             muted 
@@ -192,10 +192,10 @@ export default function WorkoutDay() {
           </div>
         )}
         {/* Gradient Overlay for Text */}
-        <div className="relative z-10 w-full bg-gradient-to-t from-black via-black/80 to-transparent pt-32 pb-6 text-center">
+        <div className="relative z-10 w-full bg-gradient-to-t from-black via-black/80 to-transparent pt-32 pb-6 text-center pointer-events-none">
            <h2 className="text-2xl font-bold mb-1 text-white drop-shadow-md">{currentEx.name}</h2>
-           <p className="text-gray-300 font-bold text-[11px] uppercase tracking-widest">
-             {currentEx.reps.includes('x') ? 'REPETIÇÕES' : 'TEMPO'}
+           <p className="text-gray-300 font-bold text-[14px] uppercase tracking-widest">
+             {currentEx.reps} {currentEx.reps.includes('x') ? 'REPETIÇÕES' : 'SEGUNDOS'}
            </p>
            <p className="text-primary font-bold text-[11px] uppercase tracking-widest mt-0.5">
              DECORRIDO

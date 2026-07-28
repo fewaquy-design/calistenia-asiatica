@@ -26,7 +26,7 @@ export default function Register() {
       });
 
       const appUser = {
-        nome: name,
+        nome: userCredential.user.displayName || name,
         email: email,
         dataCadastro: new Date().toISOString()
       };

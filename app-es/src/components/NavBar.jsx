@@ -44,45 +44,47 @@ export default function NavBar() {
   return (
     <div className="fixed bottom-0 w-full z-50">
       {/* Upsell Story Cards */}
-      <div className="w-full max-w-md mx-auto px-3 pb-1 grid grid-cols-2 gap-2">
-        {upsells.map((item) => (
-          <div key={item.id} className="flex flex-col">
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`w-full h-[140px] rounded-2xl relative overflow-hidden shadow-lg transition-transform active:scale-[0.98] bg-gradient-to-b ${item.bgColor}`}
-            >
-              {/* Background image */}
-              <div className="absolute inset-0">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => { e.target.style.display = 'none'; }}
-                />
-              </div>
-              {/* Dark gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-              {/* Badge */}
-              <div className="absolute top-1.5 left-1.5 z-10">
-                <span className={`${item.badgeColor} text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full`}>{item.badge}</span>
-              </div>
-              {/* Lock icon */}
-              <div className="absolute inset-0 flex items-center justify-center z-10 pb-8">
-                <div className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                  <Lock size={14} className="text-white" />
+      {location.pathname === '/home' && (
+        <div className="w-full max-w-md mx-auto px-3 pb-1 grid grid-cols-2 gap-2">
+          {upsells.map((item) => (
+            <div key={item.id} className="flex flex-col">
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full h-[140px] rounded-2xl relative overflow-hidden shadow-lg transition-transform active:scale-[0.98] bg-gradient-to-b ${item.bgColor}`}
+              >
+                {/* Background image */}
+                <div className="absolute inset-0">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
                 </div>
-              </div>
-              {/* Content bottom */}
-              <div className="absolute bottom-0 left-0 right-0 z-10 p-2">
-                <p className="text-white font-bold text-[10px] leading-tight">{item.title}</p>
-                <p className="text-white/70 text-[8px] leading-tight line-clamp-1">{item.subtitle}</p>
-              </div>
-            </a>
-          </div>
-        ))}
-      </div>
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                {/* Badge */}
+                <div className="absolute top-1.5 left-1.5 z-10">
+                  <span className={`${item.badgeColor} text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full`}>{item.badge}</span>
+                </div>
+                {/* Lock icon */}
+                <div className="absolute inset-0 flex items-center justify-center z-10 pb-8">
+                  <div className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                    <Lock size={14} className="text-white" />
+                  </div>
+                </div>
+                {/* Content bottom */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-2">
+                  <p className="text-white font-bold text-[10px] leading-tight">{item.title}</p>
+                  <p className="text-white/70 text-[8px] leading-tight line-clamp-1">{item.subtitle}</p>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Nav Bar */}
       <div className="bg-white border-t border-gray-100">
