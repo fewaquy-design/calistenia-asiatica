@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Interno — Calistenia Asiática</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- UTMify - UTM tracking -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    
+    <!-- UTMify - Meta Pixel -->
+    <script>
+      window.pixelId = "6a4bd1448a171a32aa7d1226";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+</head>
+<body>
+
+<!-- ═══════════════ AUTH OVERLAY ═══════════════════════════════ -->
+<div id="auth-overlay">
+    <div class="auth-card">
+        <div class="logo-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h2>Área Restrita</h2>
+        <p>Digite a senha para acessar o dashboard de analytics da Calistenia.</p>
+        <input
+            id="auth-password"
+            type="password"
+            class="auth-input"
+            placeholder="Senha de acesso..."
+            autocomplete="current-password"
+        >
+        <button id="auth-submit" class="auth-btn">Entrar</button>
+        <div id="auth-error" class="auth-error">Senha incorreta. Tente novamente.</div>
+    </div>
+</div>
+
+<!-- ═══════════════ APP ════════════════════════════════════════ -->
+<div id="app">
+
+    <!-- Header -->
+    <header class="dash-header">
+        <div class="dash-header-left">
+            <div class="dash-header-label">Dashboard Interno</div>
+            <div class="dash-header-title">Funil Calistenia Asiática</div>
+            <div class="dash-header-sub">
+                Eventos registrados na tabela <code>calistenia_eventos</code>
+            </div>
+        </div>
+        <div class="dash-actions">
+            <button id="btn-refresh" class="btn btn-primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+                <span>Atualizar</span>
+            </button>
+            <button id="btn-clear" class="btn btn-danger">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+                <span>Limpar registros</span>
+            </button>
+            <button id="btn-logout" class="btn btn-outline">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                <span>Sair</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="dash-main">
+
+        <!-- Config warning banner -->
+        <div id="config-banner" class="config-banner">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span><strong>Firebase não configurado.</strong> Abra o arquivo <code>js/analytics.js</code> e substitua a URL do seu Realtime Database.</span>
+        </div>
+
+        <!-- Period filters -->
+        <div class="period-bar">
+            <span class="period-label">Período:</span>
+            <button class="period-btn active" data-period="all">Tudo</button>
+            <button class="period-btn" data-period="today">Hoje</button>
+            <button class="period-btn" data-period="yesterday">Ontem</button>
+            <button class="period-btn" data-period="7d">Últimos 7 dias</button>
+            <button class="period-btn" data-period="30d">Últimos 30 dias</button>
+            <button class="period-btn" data-period="custom">Personalizado</button>
+            <div id="custom-range" class="custom-range">
+                <input type="date" id="date-from">
+                <span>até</span>
+                <input type="date" id="date-to">
+            </div>
+        </div>
+
+        <!-- Top stats row -->
+        <div class="stats-top" id="stats-top">
+            <div class="stat-card highlight">
+                <div class="stat-icon">👤</div>
+                <div class="stat-label">Visitas (index)</div>
+                <div class="stat-value" id="stat-visits">—</div>
+                <div class="stat-sub">Abriram a landing page</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔗</div>
+                <div class="stat-label">Iniciaram o quiz</div>
+                <div class="stat-value" id="stat-quiz-starts">—</div>
+                <div class="stat-sub">Chegaram no Step 1</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-label">Sessões rastreadas</div>
+                <div class="stat-value" id="stat-sessions">—</div>
+                <div class="stat-sub">IDs únicos de sessão</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-label">Etapa Média Máxima</div>
+                <div class="stat-value" id="stat-avg-step">—</div>
+                <div class="stat-sub">Média de onde param</div>
+            </div>
+            <div class="stat-card highlight">
+                <div class="stat-icon">✅</div>
+                <div class="stat-label">Taxa de Conclusão</div>
+                <div class="stat-value" id="stat-completion">—</div>
+                <div class="stat-sub">Chegaram ao final (Step 34)</div>
+            </div>
+            <div class="stat-card danger-card">
+                <div class="stat-icon">🛒</div>
+                <div class="stat-label">Visualizações VSL</div>
+                <div class="stat-value" id="stat-checkout">—</div>
+                <div class="stat-sub">Chegaram no Step 35</div>
+            </div>
+        </div>
+
+        <!-- Funnel -->
+        <div class="section-card">
+            <div class="section-title">
+                Funil de Drop-off
+                <span class="badge" id="funnel-badge">carregando…</span>
+            </div>
+            <div id="funnel-container">
+                <div class="state-box">
+                    <div class="spinner"></div>
+                    <p>Carregando dados…</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leads Table -->
+        <div class="section-card" id="leads-section" style="margin-top: 30px;">
+            <div class="section-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                    Respostas do Quiz (Leads capturados)
+                    <span class="badge" id="leads-badge">carregando…</span>
+                </div>
+                <div style="font-size: 13px; font-weight: normal; display: flex; align-items: center; gap: 8px;">
+                    <button id="btn-export-csv" class="btn btn-outline" style="padding: 4px 10px; font-size: 12px; border-color: #10b981; color: #10b981;">⬇️ CSV</button>
+                    <button id="btn-export-json" class="btn btn-outline" style="padding: 4px 10px; font-size: 12px; border-color: #3b82f6; color: #3b82f6;">⬇️ JSON</button>
+                    <label for="leads-per-page" style="color: #666; margin-left: 10px;">Mostrar:</label>
+                    <select id="leads-per-page" style="padding: 4px 8px; border-radius: 6px; border: 1px solid #ddd; outline: none; background: #fff;">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="leads-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Idade</th>
+                            <th>Peso Inicial</th>
+                            <th>Objetivo</th>
+                            <th>Detalhes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-tbody">
+                        <tr><td colspan="5" style="text-align: center; padding: 20px;">Carregando respostas…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination Controls -->
+            <div id="leads-pagination" style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px; font-size: 13px; color: #555;">
+                <div id="leads-page-info">Mostrando 0 de 0</div>
+                <div style="display: flex; gap: 5px;">
+                    <button id="btn-prev-page" class="btn btn-outline" style="padding: 4px 10px; font-size: 12px;" disabled>Anterior</button>
+                    <button id="btn-next-page" class="btn btn-outline" style="padding: 4px 10px; font-size: 12px;" disabled>Próxima</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<!-- ═══════════════ CONFIRM MODAL ══════════════════════════════ -->
+<div id="modal-backdrop" class="modal-backdrop">
+    <div class="modal">
+        <h3>🗑️ Limpar todos os registros?</h3>
+        <p>Esta ação vai apagar todos os eventos do Firebase permanentemente. Essa ação não pode ser desfeita.</p>
+        <div class="modal-actions">
+            <button id="modal-cancel" class="btn btn-outline">Cancelar</button>
+            <button id="modal-confirm" class="btn btn-danger">Sim, limpar tudo</button>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ LEAD DETAILS MODAL ═════════════════════════ -->
+<div id="lead-modal-backdrop" class="modal-backdrop">
+    <div class="modal" style="max-width: 500px; max-height: 80vh; overflow-y: auto; text-align: left;">
+        <h3 style="margin-bottom: 20px;">Detalhes do Lead</h3>
+        <div id="lead-details-content"></div>
+        <div class="modal-actions" style="margin-top: 20px;">
+            <button id="lead-modal-close" class="btn btn-outline" style="width: 100%;">Fechar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<!-- Analytics module -->
+<script src="js/analytics.js"></script>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  Dashboard Logic
+// ═══════════════════════════════════════════════════════════════
+
+const DASH_PASSWORD = '123'; // ← mude a senha aqui
+const COMPLETION_STEP = 'step34';
+
+let allEvents    = {};
+let allLeads     = {};
+let activePeriod = 'all';
+let dateFrom     = null;
+let dateTo       = null;
+let leadsCurrentPage = 1;
+let leadsPerPage = 10;
+
+function msToHuman(ms) {
+    if (!ms || ms < 0) return '—';
+    const s = Math.floor(ms / 1000);
+    if (s < 60) return s + 's';
+    const m = Math.floor(s / 60);
+    const rs = s % 60;
+    return m + 'm ' + (rs > 0 ? rs + 's' : '');
+}
+
+function pct(n, total) {
+    if (!total) return '0%';
+    return Math.round((n / total) * 100) + '%';
+}
+
+function startOfDay(ts) {
+    const d = new Date(ts);
+    d.setHours(0,0,0,0);
+    return d.getTime();
+}
+
+function filterByPeriod(events) {
+    const now = Date.now();
+    const today = startOfDay(now);
+    const yesterday = today - 86400000;
+
+    return Object.values(events).filter(ev => {
+        const t = ev.timestamp;
+        if (activePeriod === 'today')     return t >= today;
+        if (activePeriod === 'yesterday') return t >= yesterday && t < today;
+        if (activePeriod === '7d')        return t >= now - 7  * 86400000;
+        if (activePeriod === '30d')       return t >= now - 30 * 86400000;
+        if (activePeriod === 'custom') {
+            const from = dateFrom ? new Date(dateFrom).getTime() : 0;
+            const to   = dateTo   ? new Date(dateTo).getTime() + 86399999 : Infinity;
+            return t >= from && t <= to;
+        }
+        return true; 
+    });
+}
+
+function computeStats(filteredEvents) {
+    const sessions = {};
+    filteredEvents.forEach(ev => {
+        const sid = ev.sessionId;
+        if (!sid) return;
+        if (!sessions[sid]) sessions[sid] = { events: [], steps: new Set(), minTs: Infinity, maxTs: -Infinity };
+        sessions[sid].events.push(ev);
+        if (ev.stepId) sessions[sid].steps.add(ev.stepId);
+        sessions[sid].minTs = Math.min(sessions[sid].minTs, ev.timestamp);
+        sessions[sid].maxTs = Math.max(sessions[sid].maxTs, ev.timestamp);
+    });
+
+    const stepCounts = {};
+    QuizAnalytics.STEP_ORDER.forEach(s => { stepCounts[s] = 0; });
+
+    Object.values(sessions).forEach(sess => {
+        sess.steps.forEach(stepId => {
+            if (stepCounts.hasOwnProperty(stepId)) {
+                stepCounts[stepId]++;
+            }
+        });
+    });
+
+    const visits = filteredEvents.filter(ev => ev.stepId === 'index').length;
+    const quizStarts = filteredEvents.filter(ev => ev.stepId === 'step1').length;
+    const totalSessions = Object.keys(sessions).length;
+    const checkoutClicks = filteredEvents.filter(ev => ev.stepId === 'step35').length;
+
+    const completedSessions = Object.values(sessions).filter(sess => sess.steps.has(COMPLETION_STEP)).length;
+    const completionRate = totalSessions > 0 ? Math.round((completedSessions / totalSessions) * 100) : 0;
+
+    const stepIndexMap = {};
+    QuizAnalytics.STEP_ORDER.forEach((s, i) => { stepIndexMap[s] = i; });
+
+    let stepIndexSum = 0, stepIndexCount = 0;
+    Object.values(sessions).forEach(sess => {
+        let maxIdx = -1;
+        sess.steps.forEach(sid => {
+            const idx = stepIndexMap[sid];
+            if (idx !== undefined && idx > maxIdx) maxIdx = idx;
+        });
+        if (maxIdx >= 0) { stepIndexSum += maxIdx; stepIndexCount++; }
+    });
+    const avgStep = stepIndexCount > 0 ? (stepIndexSum / stepIndexCount).toFixed(1) : '—';
+
+    return { visits, quizStarts, totalSessions, checkoutClicks, completionRate, stepCounts, avgStep };
+}
+
+function renderStats(stats) {
+    document.getElementById('stat-visits').textContent     = stats.visits;
+    document.getElementById('stat-quiz-starts').textContent= stats.quizStarts;
+    document.getElementById('stat-sessions').textContent   = stats.totalSessions;
+    document.getElementById('stat-avg-step').textContent   = stats.avgStep;
+    document.getElementById('stat-completion').textContent = stats.completionRate + '%';
+    document.getElementById('stat-checkout').textContent   = stats.checkoutClicks;
+}
+
+function renderFunnel(stats) {
+    const container = document.getElementById('funnel-container');
+    const badge = document.getElementById('funnel-badge');
+
+    if (Object.keys(allEvents).length === 0) {
+        container.innerHTML = `
+            <div class="state-box">
+                <div class="state-icon">📭</div>
+                <p>Nenhum evento registrado ainda.<br>O Firebase pode não estar configurado.</p>
+            </div>`;
+        badge.textContent = '0 sessões';
+        return;
+    }
+
+    badge.textContent = stats.totalSessions + ' sessões';
+
+    const maxCount = Math.max(...QuizAnalytics.STEP_ORDER.map(s => stats.stepCounts[s] || 0), 1);
+
+    let html = '';
+    QuizAnalytics.STEP_ORDER.forEach((stepId, i) => {
+        const count = stats.stepCounts[stepId] || 0;
+        const barPct = Math.round((count / maxCount) * 100);
+        const pctOfFirst = stats.stepCounts[QuizAnalytics.STEP_ORDER[0]]
+            ? pct(count, stats.stepCounts[QuizAnalytics.STEP_ORDER[0]])
+            : '—';
+        const isCheckout = stepId === 'step35';
+        const stepLabel = QuizAnalytics.STEP_NAMES[stepId] || stepId;
+
+        html += `
+        <div class="funnel-row">
+            <span class="funnel-index">${i}</span>
+            <span class="funnel-name" title="${stepLabel}">${stepLabel}</span>
+            <div class="funnel-bar-wrap">
+                <div class="funnel-bar-fill ${isCheckout ? 'checkout' : ''}" style="width:${barPct}%"></div>
+            </div>
+            <span class="funnel-count">${count} <span class="pct">(${pctOfFirst})</span></span>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+    requestAnimationFrame(() => {
+        container.querySelectorAll('.funnel-bar-fill').forEach(bar => {
+            const w = bar.style.width;
+            bar.style.width = '0';
+            requestAnimationFrame(() => { bar.style.width = w; });
+        });
+    });
+}
+
+function renderLeads() {
+    const tbody = document.getElementById('leads-tbody');
+    const badge = document.getElementById('leads-badge');
+    const pageInfo = document.getElementById('leads-page-info');
+    const btnPrev = document.getElementById('btn-prev-page');
+    const btnNext = document.getElementById('btn-next-page');
+    
+    const leadsArr = Object.values(allLeads).sort((a, b) => b.timestamp - a.timestamp);
+    badge.textContent = leadsArr.length + ' respostas';
+    
+    if (leadsArr.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;">Nenhuma resposta capturada.</td></tr>';
+        pageInfo.textContent = 'Mostrando 0 de 0';
+        btnPrev.disabled = true;
+        btnNext.disabled = true;
+        return;
+    }
+
+    const totalPages = Math.ceil(leadsArr.length / leadsPerPage);
+    if (leadsCurrentPage > totalPages) leadsCurrentPage = totalPages;
+    if (leadsCurrentPage < 1) leadsCurrentPage = 1;
+
+    const startIdx = (leadsCurrentPage - 1) * leadsPerPage;
+    const endIdx = startIdx + leadsPerPage;
+    
+    const paginatedLeads = leadsArr.slice(startIdx, endIdx);
+
+    let html = '';
+    paginatedLeads.forEach(lead => {
+        const date = new Date(lead.timestamp).toLocaleString('pt-BR');
+        const idade = lead['userIdade'] || '—';
+        const peso = lead['userWeight'] ? lead['userWeight'] + ' kg' : '—';
+        const objetivo = lead['userTargetWeight'] ? lead['userTargetWeight'] + ' kg' : '—';
+        const leadStr = encodeURIComponent(JSON.stringify(lead));
+        
+        html += `
+            <tr>
+                <td>${date}</td>
+                <td><strong>${idade}</strong></td>
+                <td>${peso}</td>
+                <td>${objetivo}</td>
+                <td><button class="btn btn-outline" style="padding: 4px 10px; font-size: 11px;" onclick="showLeadDetails('${leadStr}')">Ver Tudo</button></td>
+            </tr>
+        `;
+    });
+    tbody.innerHTML = html;
+
+    const currentEnd = Math.min(endIdx, leadsArr.length);
+    pageInfo.textContent = `Mostrando ${startIdx + 1} a ${currentEnd} de ${leadsArr.length}`;
+    
+    btnPrev.disabled = (leadsCurrentPage === 1);
+    btnNext.disabled = (leadsCurrentPage === totalPages);
+}
+
+window.showLeadDetails = function(encodedStr) {
+    try {
+        const lead = JSON.parse(decodeURIComponent(encodedStr));
+        let html = '<ul style="list-style: none; padding: 0; margin: 0;">';
+        for (const [key, val] of Object.entries(lead)) {
+            if (key !== 'sessionId' && key !== 'timestamp') {
+                html += `<li style="margin-bottom: 12px; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">
+                            <strong style="color: #d64d7a; display: block; font-size: 12px; margin-bottom: 4px;">${key}</strong>
+                            <span style="font-size: 14px; color: #333; font-weight: 500;">${val || '—'}</span>
+                         </li>`;
+            }
+        }
+        html += '</ul>';
+        document.getElementById('lead-details-content').innerHTML = html;
+        document.getElementById('lead-modal-backdrop').classList.add('open');
+    } catch(e) {}
+};
+
+function refresh() {
+    document.getElementById('funnel-container').innerHTML = `
+        <div class="state-box">
+            <div class="spinner"></div>
+            <p>Carregando dados…</p>
+        </div>`;
+    document.getElementById('leads-tbody').innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;"><div class="spinner" style="margin: 0 auto;"></div></td></tr>';
+
+    QuizAnalytics.fetchAllEvents().then(events => {
+        allEvents = events || {};
+        const filtered = filterByPeriod(allEvents);
+        const stats = computeStats(filtered);
+        renderStats(stats);
+        renderFunnel(stats);
+    });
+
+    QuizAnalytics.fetchAllLeads().then(leads => {
+        allLeads = leads || {};
+        renderLeads();
+    });
+}
+
+function checkAuth() {
+    return sessionStorage.getItem('dash_auth') === '1';
+}
+
+function login(password) {
+    if (password === DASH_PASSWORD) {
+        sessionStorage.setItem('dash_auth', '1');
+        document.getElementById('auth-overlay').classList.add('hide');
+        document.getElementById('app').classList.add('visible');
+        setTimeout(refresh, 400);
+
+        if (!QuizAnalytics.isConfigured()) {
+            document.getElementById('config-banner').classList.add('show');
+        }
+        return true;
+    }
+    return false;
+}
+
+function logout() {
+    sessionStorage.removeItem('dash_auth');
+    document.getElementById('auth-overlay').classList.remove('hide');
+    document.getElementById('app').classList.remove('visible');
+    document.getElementById('auth-password').value = '';
+}
+
+function showToast(msg, type = '') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast show' + (type ? ' ' + type : '');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => { t.classList.remove('show'); }, 3000);
+}
+
+document.querySelectorAll('.period-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activePeriod = btn.dataset.period;
+
+        const customRange = document.getElementById('custom-range');
+        if (activePeriod === 'custom') {
+            customRange.classList.add('show');
+        } else {
+            customRange.classList.remove('show');
+            const filtered = filterByPeriod(allEvents);
+            const stats = computeStats(filtered);
+            renderStats(stats);
+            renderFunnel(stats);
+        }
+    });
+});
+
+document.getElementById('date-from').addEventListener('change', e => {
+    dateFrom = e.target.value;
+    const filtered = filterByPeriod(allEvents);
+    const stats = computeStats(filtered);
+    renderStats(stats);
+    renderFunnel(stats);
+});
+document.getElementById('date-to').addEventListener('change', e => {
+    dateTo = e.target.value;
+    const filtered = filterByPeriod(allEvents);
+    const stats = computeStats(filtered);
+    renderStats(stats);
+    renderFunnel(stats);
+});
+
+// Pagination event listeners
+document.getElementById('leads-per-page').addEventListener('change', e => {
+    leadsPerPage = parseInt(e.target.value, 10);
+    leadsCurrentPage = 1;
+    renderLeads();
+});
+
+document.getElementById('btn-prev-page').addEventListener('click', () => {
+    if (leadsCurrentPage > 1) {
+        leadsCurrentPage--;
+        renderLeads();
+    }
+});
+
+document.getElementById('btn-next-page').addEventListener('click', () => {
+    leadsCurrentPage++;
+    renderLeads();
+});
+
+// Export event listeners
+document.getElementById('btn-export-csv').addEventListener('click', () => {
+    const filteredLeads = filterByPeriod(allLeads);
+    if (filteredLeads.length === 0) {
+        showToast('Nenhum dado para exportar.', 'error');
+        return;
+    }
+
+    const allKeys = new Set();
+    filteredLeads.forEach(lead => {
+        Object.keys(lead).forEach(k => allKeys.add(k));
+    });
+    
+    const header = Array.from(allKeys).sort((a, b) => {
+        if (a === 'timestamp') return -1;
+        if (b === 'timestamp') return 1;
+        if (a === 'sessionId') return -1;
+        if (b === 'sessionId') return 1;
+        return a.localeCompare(b);
+    });
+
+    let csvContent = header.join(',') + '\n';
+
+    filteredLeads.forEach(lead => {
+        const row = header.map(k => {
+            let val = lead[k];
+            if (val === undefined || val === null) val = '';
+            val = String(val).replace(/"/g, '""');
+            if (val.search(/("|,|\n)/g) >= 0) {
+                val = `"${val}"`;
+            }
+            return val;
+        });
+        csvContent += row.join(',') + '\n';
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `leads_export_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+document.getElementById('btn-export-json').addEventListener('click', () => {
+    const filteredLeads = filterByPeriod(allLeads);
+    if (filteredLeads.length === 0) {
+        showToast('Nenhum dado para exportar.', 'error');
+        return;
+    }
+
+    const jsonContent = JSON.stringify(filteredLeads, null, 2);
+    const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', `leads_export_${new Date().toISOString().split('T')[0]}.json`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+document.getElementById('btn-refresh').addEventListener('click', () => {
+    refresh();
+    showToast('Dados atualizados!', 'success');
+});
+
+document.getElementById('btn-logout').addEventListener('click', logout);
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+    document.getElementById('modal-backdrop').classList.add('open');
+});
+document.getElementById('modal-cancel').addEventListener('click', () => {
+    document.getElementById('modal-backdrop').classList.remove('open');
+});
+document.getElementById('modal-confirm').addEventListener('click', () => {
+    document.getElementById('modal-backdrop').classList.remove('open');
+    QuizAnalytics.clearAllEvents().then(() => {
+        allEvents = {};
+        const stats = computeStats([]);
+        renderStats(stats);
+        renderFunnel(stats);
+        showToast('Registros apagados com sucesso.', 'success');
+    }).catch(() => {
+        showToast('Erro ao apagar os registros.', 'error');
+    });
+});
+
+document.getElementById('modal-backdrop').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal-backdrop')) {
+        document.getElementById('modal-backdrop').classList.remove('open');
+    }
+});
+
+document.getElementById('lead-modal-close').addEventListener('click', () => {
+    document.getElementById('lead-modal-backdrop').classList.remove('open');
+});
+document.getElementById('lead-modal-backdrop').addEventListener('click', e => {
+    if (e.target === document.getElementById('lead-modal-backdrop')) {
+        document.getElementById('lead-modal-backdrop').classList.remove('open');
+    }
+});
+
+document.getElementById('auth-submit').addEventListener('click', () => {
+    const pw = document.getElementById('auth-password').value;
+    const ok = login(pw);
+    if (!ok) {
+        document.getElementById('auth-password').classList.add('error');
+        document.getElementById('auth-error').classList.add('show');
+        setTimeout(() => {
+            document.getElementById('auth-password').classList.remove('error');
+            document.getElementById('auth-error').classList.remove('show');
+        }, 2500);
+    }
+});
+
+document.getElementById('auth-password').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('auth-submit').click();
+});
+
+if (checkAuth()) {
+    document.getElementById('auth-overlay').classList.add('hide');
+    document.getElementById('app').classList.add('visible');
+    if (!QuizAnalytics.isConfigured()) {
+        document.getElementById('config-banner').classList.add('show');
+    }
+    refresh();
+}
+</script>
+
+<!-- UTMify: cole antes de </body> em TODAS as páginas da sua landing -->
+<script src="https://utmify.vercel.app/track.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948327574"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17948327574');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Calistenia para Mulheres</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .chart-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .chart-svg {
+            width: 100%;
+            height: 180px;
+            overflow: visible;
+        }
+        
+        .badge-red {
+            position: absolute;
+            background: #ef4444;
+            color: #fff;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transform: translate(-50%, -100%);
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .badge-white {
+            position: absolute;
+            background: #fff;
+            color: #666;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-weight: 600;
+            font-size: 0.65rem;
+            transform: translate(-50%, -100%);
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .badge-green {
+            position: absolute;
+            background: #22c55e;
+            color: #fff;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transform: translate(-50%, -100%);
+            margin-top: -8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .weight-highlight {
+            background: #e6f0ff;
+            color: #3b82f6;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+        
+        .result-title {
+            color: #d64d7a;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-text {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+        
+        /* Animations */
+        .chart-anim-area {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .chart-anim-point {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .badge-anim {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1325230612888990');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1325230612888990&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <!-- UTMify - UTM tracking -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    
+    <!-- UTMify - Meta Pixel -->
+    <script>
+      window.pixelId = "6a4bd1448a171a32aa7d1226";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+</head>
+<body>
+    <header class="hdr">
+        <div class="logo-container" style="margin: 0 auto;">
+            <span class="hdr-logo">CALISTENIA</span>
+            <span class="hdr-badge">by Atlas</span>
+        </div>
+    </header>
+
+    <main class="step5-container" style="max-width: 600px; padding: 3rem 1rem; text-align: center;">
+        
+        <h1 class="step5-title" style="margin-bottom: 0.5rem; font-size: 1.5rem; line-height: 1.3;">
+            O último plano que você precisará para ficar em forma
+        </h1>
+        
+        <p style="text-align: center; color: #666; font-size: 1rem; margin-bottom: 3rem;">
+            Prevemos que você estará com <span class="weight-highlight" id="top-target-weight">64kg</span> em até 21 dias
+        </p>
+        
+        <div class="chart-container">
+            <svg class="chart-svg" viewBox="0 0 300 160" preserveAspectRatio="none">
+                <defs>
+                    <!-- Horizontal gradient for the area -->
+                    <linearGradient id="areaGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ef4444" stop-opacity="0.7"/>
+                        <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.7"/>
+                        <stop offset="100%" stop-color="#22c55e" stop-opacity="0.7"/>
+                    </linearGradient>
+                    
+                    <!-- Gradient from top to bottom to make it fade out (optional, but looks better) -->
+                    <linearGradient id="fadeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+                        <stop offset="100%" stop-color="#ffffff" stop-opacity="0.8"/>
+                    </linearGradient>
+                </defs>
+                
+                <!-- Area -->
+                <path class="chart-anim-area" style="animation-delay: 0.2s;" d="M 20 20 Q 85 70, 150 70 T 280 120 L 280 160 L 20 160 Z" fill="url(#areaGradient)" />
+                <path class="chart-anim-area" style="animation-delay: 0.2s;" d="M 20 20 Q 85 70, 150 70 T 280 120 L 280 160 L 20 160 Z" fill="url(#fadeGradient)" />
+                
+                <!-- Line (matching the gradient) -->
+                <path d="M 20 20 Q 85 70, 150 70 T 280 120" fill="none" stroke="url(#areaGradient)" stroke-width="3" />
+                
+                <!-- Points -->
+                <circle cx="20" cy="20" r="5" fill="#ef4444" class="chart-anim-point" style="animation-delay: 0.5s;" />
+                <circle cx="150" cy="70" r="4" fill="#f59e0b" stroke="#fff" stroke-width="2" class="chart-anim-point" style="animation-delay: 1s;" />
+                <circle cx="280" cy="120" r="5" fill="#22c55e" class="chart-anim-point" style="animation-delay: 1.5s;" />
+            </svg>
+            
+            <!-- Badges overlay -->
+            <div class="badge-red badge-anim" style="left: 6.66%; top: 12.5%; animation-delay: 0.5s;" id="badge-start">74kg</div>
+            <div class="badge-white badge-anim" style="left: 50%; top: 43.75%; animation-delay: 1s;">Semana 2</div>
+            <div class="badge-green badge-anim" style="left: 93.33%; top: 75%; animation-delay: 1.5s;" id="badge-end">64kg</div>
+        </div>
+        
+        <div class="result-title">Protocolo de 21 dias quase pronto!</div>
+        <div class="result-text">
+            De acordo com as suas respostas, você está pronta para ter resultados em 21 dias com o nosso programa.
+        </div>
+        
+        <div style="width: 100%; text-align: center;">
+            <a href="step31.html" class="btn-pink">Continuar</a>
+        </div>
+    </main>
+    
+    <script>
+        // Fetch values
+        let weight = parseFloat(localStorage.getItem('userWeight')) || 74;
+        let targetWeight = parseFloat(localStorage.getItem('userTargetWeight'));
+        
+        // If userTargetWeight is missing or invalid, fallback to currentWeight - 10
+        if (!targetWeight || isNaN(targetWeight)) {
+            targetWeight = weight - 10;
+        }
+        
+        // For a 21-day "fast" transformation graph, we usually don't use the full target if it's very far,
+        // but let's just use the target weight or at least 5kg less.
+        let finalWeight = weight - 10; 
+        if (weight - targetWeight > 0 && weight - targetWeight <= 15) {
+            finalWeight = targetWeight;
+        }
+        
+        document.getElementById('top-target-weight').textContent = finalWeight + 'kg';
+        document.getElementById('badge-start').textContent = weight + 'kg';
+        document.getElementById('badge-end').textContent = finalWeight + 'kg';
+    </script>
+
+<script src="../js/analytics.js"></script>
+<!-- UTMify: cole antes de </body> em TODAS as páginas da sua landing -->
+<script src="https://utmify.vercel.app/track.js" defer></script>
+</body>
+</html>

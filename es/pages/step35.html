@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948327574"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17948327574');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Calistenia para Mujeres</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .custom-video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #000;
+            aspect-ratio: 9/16;
+        }
+        .video-player {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        /* Hide default controls fully */
+        .video-player::-webkit-media-controls {
+            display: none !important;
+        }
+        
+        .custom-controls {
+            position: absolute;
+            bottom: 16px;
+            left: 12px;
+            z-index: 10;
+        }
+        .control-btn {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 6px;
+            padding: 8px 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .custom-progress-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+        .custom-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #cc0000;
+        }
+
+        /* VSL Content Styles */
+        #vsl-content {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .pulse-btn {
+            animation: pulseBtn 2s infinite;
+        }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 77, 122, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(214, 77, 122, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 77, 122, 0); }
+        }
+        
+        .benefits-list {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 0;
+            list-style: none;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        .benefit-icon {
+            color: #22c55e;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .mockup-img {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+        
+        .price-box {
+            background: #fff;
+            border: 2px solid #d64d7a;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(214, 77, 122, 0.1);
+        }
+        .price-discount {
+            color: #d64d7a;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1rem;
+        }
+        .price-new {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1;
+            margin: 0.5rem 0;
+        }
+        .price-terms {
+            color: #666;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 3rem 0 1.5rem;
+        }
+        
+        .testimonial {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .testimonial-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .testimonial-name {
+            font-weight: 700;
+            color: #d64d7a;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .testimonial-text {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .faq-item {
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+        .faq-q {
+            font-weight: 700;
+            color: #d64d7a;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .faq-a {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .guarantee-box {
+            background: #fff9fa;
+            border: 1px solid #fce8e6;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 3rem 0;
+        }
+        .guarantee-img {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+        .guarantee-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+        
+            margin-bottom: 1rem;
+            animation: pulseBtn 2s infinite;
+        }
+    </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1325230612888990');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1325230612888990&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <!-- UTMify - UTM tracking -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    
+    <!-- UTMify - Meta Pixel -->
+    <script>
+      window.pixelId = "6a4bd1448a171a32aa7d1226";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+</head>
+<body>
+    <header class="hdr">
+        <div class="logo-container" style="margin: 0 auto;">
+            <span class="hdr-logo">CALISTENIA</span>
+            <span class="hdr-badge">by Atlas</span>
+        </div>
+    </header>
+
+    <main class="step5-container" style="max-width: 600px; padding: 2rem 1rem 4rem; text-align: center;">
+        
+        <h1 class="step5-title" style="margin-bottom: 0.5rem; color: #d64d7a;">¡Tu plan de Calistenia Asiática está listo!</h1>
+        
+        <p style="text-align: center; color: #666; font-size: 0.95rem; line-height: 1.5; margin-bottom: 2rem;">
+            Mira el video a continuación para entender cómo funciona...
+        </p>
+        
+        <div class="custom-video-wrapper">
+            <!-- Removed muted to keep exact PT pattern -->
+            <video id="vsl-video" class="video-player" autoplay playsinline>
+                <source src="../images/calisteniaMujeres.mp4" type="video/mp4">
+            </video>
+            
+            <div class="custom-controls">
+                <button id="play-pause-btn" class="control-btn">
+                    <!-- Pause Icon (default since it autoplays) -->
+                    <svg id="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="white"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                    <!-- Play Icon -->
+                    <svg id="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="white" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </button>
+            </div>
+            
+            <div class="custom-progress-bg">
+                <div id="custom-progress" class="custom-progress-fill"></div>
+            </div>
+        </div>
+        
+        <!-- VSL Hidden Content -->
+        <div id="vsl-content">
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="margin-top: 2rem; width: 100%; font-size: 1rem;">Obtener mi plan personalizado ahora</a>
+            <p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem;">Pago 100% seguro | Acceso Inmediato</p>
+            
+            <ul class="benefits-list">
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Programa práctico de entrenamientos</strong> enfocados en la quema de grasa y tonificación sin sobrecargar las articulaciones.</div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Cronograma flexible</strong> con 15 a 20 minutos de ejercicios en casa por día, sin necesidad de equipos.</div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Guía de Alimentación Saludable:</strong> Paso a paso práctico de cómo acelerar el metabolismo sin dietas extremas.</div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Acceso Inmediato por la App</strong> donde seguirás tu progreso diario directamente desde tu celular.</div>
+                </li>
+            </ul>
+            
+            <img src="../images/app-mockup.webp" alt="Aplicación en el celular" class="mockup-img">
+            
+            <div class="price-box" style="text-align: center; padding: 2rem 1.5rem;">
+                <div style="color: #ea580c; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    🔥 Quedan solo 6 lugares
+                </div>
+                <div style="color: #6b7280; font-size: 1.1rem; margin-bottom: 0.25rem;">$ 19.990 o</div>
+                <div style="color: #d64d7a; font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; letter-spacing: -1px;">$ 6.663</div>
+                <div style="color: #6b7280; font-size: 1rem; margin-bottom: 1.5rem;">en 3 cuotas</div>
+                
+                <div style="color: #d64d7a; font-weight: 700; font-size: 1rem; margin-bottom: 0.75rem;">
+                    Descuento válido solo hoy, <span class="current-date"></span>
+                </div>
+                <div style="color: #6b7280; font-size: 1rem; margin-bottom: 1.25rem;">
+                    Acceso completo al programa
+                </div>
+                <div style="color: #6b7280; font-size: 0.9rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🔒</span> Compra 100% Segura • 30 Días de Garantía
+                    </div>
+                    <div>Incondicional</div>
+                </div>
+            </div>
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="width: 100%; font-size: 1rem;">Quiero transformar mi cuerpo ahora</a>
+            
+            <!-- Testimonials -->
+            <div class="section-title">Resultados reales de mujeres como tú</div>
+            
+            <div class="testimonial">
+                <img src="../images/beatriz.webp" alt="Beatriz" class="testimonial-img">
+                <div class="testimonial-name">Beatriz — Perdió 7kg en 30 días</div>
+                <div class="testimonial-text">"Estaba estancada con mi peso y sin tiempo. La Calistenia Asiática me ayudó mucho y hoy me siento mucho mejor y con energía, ¡todo esto entrenando solo 15 minutitos al día en mi sala!"</div>
+            </div>
+            
+            <div class="testimonial">
+                <img src="../images/carla.webp" alt="Carla" class="testimonial-img">
+                <div class="testimonial-name">Carla — Perdió 5kg y tonificó su cuerpo</div>
+                <div class="testimonial-text">"Nunca pensé que conseguiría resultados tan buenos entrenando en casa. Mis piernas y glúteos están mucho más firmes y el abdomen se redujo bastante. ¡Lo recomiendo para todas!"</div>
+            </div>
+            
+            <div class="testimonial">
+                <img src="../images/Fernanda.webp" alt="Fernanda" class="testimonial-img">
+                <div class="testimonial-name">Fernanda — Perdió 12kg (Sin impacto)</div>
+                <div class="testimonial-text">"Con mi rutina agitada de madre y trabajo, entrenar 15 minutos al día salvó mi salud. El método sin impacto cuidó mis articulaciones, ya que sentía dolores en la rodilla."</div>
+            </div>
+            
+            <div class="testimonial">
+                <img src="../images/juliana.webp" alt="Juliana" class="testimonial-img">
+                <div class="testimonial-name">Juliana — Perdió 8kg después del embarazo</div>
+                <div class="testimonial-text">"Después del embarazo, fue lo único que me funcionó para volver a mi cuerpo anterior. La flexibilidad del programa es increíble y la app es muy fácil de usar."</div>
+            </div>
+            
+            <div class="price-box" style="margin-top: 3rem; text-align: center; padding: 2rem 1.5rem;">
+                <div style="color: #ea580c; font-weight: 600; font-size: 1.05rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    🔥 Quedan solo 6 lugares
+                </div>
+                <div style="color: #6b7280; font-size: 1.1rem; margin-bottom: 0.25rem;">$ 19.990 o</div>
+                <div style="color: #d64d7a; font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 0.5rem; letter-spacing: -1px;">$ 6.663</div>
+                <div style="color: #6b7280; font-size: 1rem; margin-bottom: 1.5rem;">en 3 cuotas</div>
+                
+                <div style="color: #d64d7a; font-weight: 700; font-size: 1rem; margin-bottom: 0.75rem;">
+                    Descuento válido solo hoy, <span class="current-date"></span>
+                </div>
+                <div style="color: #6b7280; font-size: 1rem; margin-bottom: 1.25rem;">
+                    Acceso completo al programa
+                </div>
+                <div style="color: #6b7280; font-size: 0.9rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 0.25rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🔒</span> Compra 100% Segura • 30 Días de Garantía
+                    </div>
+                    <div>Incondicional</div>
+                </div>
+            </div>
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="width: 100%; font-size: 1rem;">¡Sí! Quiero asegurar mi plan</a>
+            
+            <!-- Guarantee -->
+            <div class="guarantee-box">
+                <img src="../images/garantia-30.webp" alt="Garantía" class="guarantee-img">
+                <div class="guarantee-title">30 Días de Garantía Incondicional</div>
+                <div style="font-size: 0.85rem; color: #666; line-height: 1.5;">Si aplicas el método y por cualquier motivo sientes que no es para ti, solo envíanos un email y te devolvemos el 100% de tu dinero, centavo a centavo. ¡Así de simple, riesgo cero!</div>
+            </div>
+            
+            <!-- FAQ -->
+            <div class="section-title" style="margin-bottom: 1rem;">Preguntas Frecuentes</div>
+            
+            <div class="faq-item">
+                <div class="faq-q">1. ¿Necesito equipos?</div>
+                <div class="faq-a">¡No! Todo el programa fue desarrollado usando solo el peso de tu propio cuerpo. Puedes hacer todo en tu sala o en tu habitación.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">2. ¿Es seguro para quien siente dolores?</div>
+                <div class="faq-a">Sí. La Calistenia Asiática utiliza movimientos enfocados y sin impacto, lo que cuida tus articulaciones como rodillas y columna.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">3. ¿El pago es mensual?</div>
+                <div class="faq-a">¡No! Es un pago único de R$ 37,90. Pagas una vez y tienes acceso vitalicio al programa.</div>
+            </div>
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="width: 100%; font-size: 1rem; margin-top: 3rem;">Asegurar mi acceso ahora</a>
+            <p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem; margin-bottom: 2rem;">Compra segura | SSL | Riesgo Cero</p>
+            
+        </div>
+        
+    </main>
+
+    <script>
+        const video = document.getElementById('vsl-video');
+        const content = document.getElementById('vsl-content');
+        
+        // Custom Player Elements
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const iconPlay = document.getElementById('icon-play');
+        const iconPause = document.getElementById('icon-pause');
+        const progressFill = document.getElementById('custom-progress');
+        
+        // Force play with sound on load
+        window.addEventListener('DOMContentLoaded', function() {
+            video.volume = 1.0;
+            video.play().catch(function(e) {
+                console.log("Autoplay blocked by browser:", e);
+                // If it fails, we try to play it muted as fallback so at least it plays
+                video.muted = true;
+                video.play();
+            });
+        });
+        
+        // Play/Pause toggle
+        function togglePlay() {
+            if (video.muted) {
+                video.muted = false;
+                video.currentTime = 0;
+            }
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+        
+        playPauseBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            togglePlay();
+        });
+        
+        video.addEventListener('click', togglePlay);
+        
+        video.addEventListener('play', function() {
+            iconPlay.style.display = 'none';
+            iconPause.style.display = 'block';
+        });
+        
+        video.addEventListener('pause', function() {
+            iconPlay.style.display = 'block';
+            iconPause.style.display = 'none';
+        });
+
+        // Update progress bar and show VSL content at 95%
+        video.addEventListener('timeupdate', function() {
+            if (video.duration > 0) {
+                const percentage = video.currentTime / video.duration;
+                progressFill.style.width = (percentage * 100) + '%';
+                
+                // Show VSL content
+                if (percentage >= 0.95) { 
+                    if (content.style.display !== 'block') {
+                        content.style.display = 'block';
+                        content.style.animation = 'fadeIn 1s forwards';
+                        
+                        setTimeout(() => {
+                            content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 500);
+                    }
+                }
+            }
+        });
+
+        // Pause video when user leaves the tab, play when returns
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                video.pause();
+            } else {
+                video.play().catch(e => console.log('Autoplay prevented', e));
+            }
+        });
+
+        // Set current date
+        document.querySelectorAll('.current-date').forEach(el => {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            el.textContent = `${dd}/${mm}/${yyyy}`;
+        });
+    </script>
+
+<script src="../js/analytics.js"></script>
+<!-- UTMify: cole antes de </body> em TODAS as páginas da sua landing -->
+<script src="https://utmify.vercel.app/track.js" defer></script>
+</body>
+</html>

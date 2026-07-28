@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948327574"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17948327574');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Calistenia para Mulheres</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/pages.css">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1325230612888990');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1325230612888990&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <!-- UTMify - UTM tracking -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    
+    <!-- UTMify - Meta Pixel -->
+    <script>
+      window.pixelId = "6a4bd1448a171a32aa7d1226";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+</head>
+<body>
+    <header class="hdr">
+        <a href="step15.html" class="back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"></path></svg>
+        </a>
+        <div class="logo-container">
+            <span class="hdr-logo">CALISTENIA</span>
+            <span class="hdr-badge">by Atlas</span>
+        </div>
+    </header>
+
+    <main class="step5-container" style="max-width: 600px; padding: 4rem 1rem;">
+        <h1 class="step5-title" style="margin-bottom: 2rem;">Qual é a sua altura?</h1>
+        
+        <div class="ruler-container">
+            <div class="unit-toggle">
+                <button class="unit-btn active" id="btn-cm">cm</button>
+                <button class="unit-btn" id="btn-pol">pol</button>
+            </div>
+            
+            <div class="ruler-value">
+                <span id="height-val">165</span>
+                <span class="ruler-unit" id="height-unit">cm</span>
+            </div>
+            
+            <div class="scroll-ruler-wrapper">
+                <div class="scroll-ruler-pointer"></div>
+                <div class="scroll-ruler-area" id="ruler-scroll">
+                    <div class="scroll-ruler-track" id="ruler-track"></div>
+                </div>
+            </div>
+            
+            <p class="ruler-hint">Arraste para ajustar</p>
+            
+            <div class="info-box">
+                <div class="info-icon">i</div>
+                <div class="info-text">Calculando seu IMC</div>
+            </div>
+            
+            <a href="javascript:void(0)" onclick="saveAndNext()" class="btn-pink" style="margin-top: 1rem;">Próximo passo</a>
+        </div>
+    </main>
+
+    <script>
+        const track = document.getElementById('ruler-track');
+        const scrollArea = document.getElementById('ruler-scroll');
+        const valDisplay = document.getElementById('height-val');
+
+        const minVal = 140;
+        const maxVal = 220;
+        const pixelsPerUnit = 10;
+        let currentVal = 165;
+
+        // Generate ticks
+        for (let i = minVal; i <= maxVal; i++) {
+            const tick = document.createElement('div');
+            tick.className = 'ruler-tick';
+            if (i % 10 === 0) {
+                tick.classList.add('major');
+                tick.setAttribute('data-val', i);
+            } else if (i % 5 === 0) {
+                tick.style.height = '20px';
+            }
+            track.appendChild(tick);
+        }
+
+        // Update value on scroll
+        scrollArea.addEventListener('scroll', () => {
+            let calcVal = minVal + Math.round(scrollArea.scrollLeft / pixelsPerUnit);
+            if (calcVal < minVal) calcVal = minVal;
+            if (calcVal > maxVal) calcVal = maxVal;
+            currentVal = calcVal;
+            valDisplay.textContent = currentVal;
+        });
+
+        // Set initial value
+        setTimeout(() => {
+            scrollArea.scrollLeft = (currentVal - minVal) * pixelsPerUnit;
+        }, 50);
+
+        // Mouse drag logic for desktop
+        let isDragging = false;
+        let startX, scrollLeft;
+        scrollArea.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            scrollArea.style.cursor = 'grabbing';
+            startX = e.pageX - scrollArea.offsetLeft;
+            scrollLeft = scrollArea.scrollLeft;
+        });
+        scrollArea.addEventListener('mouseleave', () => {
+            isDragging = false;
+            scrollArea.style.cursor = 'grab';
+        });
+        scrollArea.addEventListener('mouseup', () => {
+            isDragging = false;
+            scrollArea.style.cursor = 'grab';
+        });
+        scrollArea.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - scrollArea.offsetLeft;
+            const walk = (x - startX) * 1.5; 
+            scrollArea.scrollLeft = scrollLeft - walk;
+        });
+
+        function saveAndNext() {
+            localStorage.setItem('userHeight', currentVal);
+            window.location.href = 'step17.html';
+        }
+    </script>
+
+<script src="../js/analytics.js"></script>
+<!-- UTMify: cole antes de </body> em TODAS as páginas da sua landing -->
+<script src="https://utmify.vercel.app/track.js" defer></script>
+</body>
+</html>

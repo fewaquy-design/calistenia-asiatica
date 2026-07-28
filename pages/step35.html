@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948327574"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17948327574');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Calistenia para Mulheres</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .custom-video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #000;
+            aspect-ratio: 9/16;
+        }
+        .video-player {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        /* Hide default controls fully */
+        .video-player::-webkit-media-controls {
+            display: none !important;
+        }
+        
+        .custom-controls {
+            position: absolute;
+            bottom: 16px;
+            left: 12px;
+            z-index: 10;
+        }
+        .control-btn {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 6px;
+            padding: 8px 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .custom-progress-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+        .custom-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #cc0000;
+        }
+
+        /* VSL Content Styles */
+        #vsl-content {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .pulse-btn {
+            animation: pulseBtn 2s infinite;
+        }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 77, 122, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(214, 77, 122, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(214, 77, 122, 0); }
+        }
+        
+        .benefits-list {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 0;
+            list-style: none;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        .benefit-icon {
+            color: #22c55e;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .mockup-img {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+        
+        .price-box {
+            background: #fff;
+            border: 2px solid #d64d7a;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(214, 77, 122, 0.1);
+        }
+        .price-discount {
+            color: #d64d7a;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1rem;
+        }
+        .price-new {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1;
+            margin: 0.5rem 0;
+        }
+        .price-terms {
+            color: #666;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 3rem 0 1.5rem;
+        }
+        
+        .testimonial {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .testimonial-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+        .testimonial-name {
+            font-weight: 700;
+            color: #d64d7a;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .testimonial-text {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .faq-item {
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+        .faq-q {
+            font-weight: 700;
+            color: #d64d7a;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .faq-a {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .guarantee-box {
+            background: #fff9fa;
+            border: 1px solid #fce8e6;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 3rem 0;
+        }
+        .guarantee-img {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+        .guarantee-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+        
+            margin-bottom: 1rem;
+            animation: pulseBtn 2s infinite;
+        }
+
+        /* VSL content hidden until video reaches 5:17 */
+        #vsl-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        #vsl-content.visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1325230612888990');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1325230612888990&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <!-- UTMify - UTM tracking -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    
+    <!-- UTMify - Meta Pixel -->
+    <script>
+      window.pixelId = "6a4bd1448a171a32aa7d1226";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+
+</head>
+<body>
+    <header class="hdr">
+        <div class="logo-container" style="margin: 0 auto;">
+            <span class="hdr-logo">CALISTENIA</span>
+            <span class="hdr-badge">by Atlas</span>
+        </div>
+    </header>
+
+    <main class="step5-container" style="max-width: 600px; padding: 2rem 1rem 4rem; text-align: center;">
+        
+        <h1 class="step5-title" style="margin-bottom: 0.5rem; color: #d64d7a;">Seu plano de Calistenia Asiática está pronto!</h1>
+        
+        <p style="text-align: center; color: #666; font-size: 0.95rem; line-height: 1.5; margin-bottom: 2rem;">
+            Assista ao vídeo abaixo para entender como funciona...
+        </p>
+        
+        <div class="custom-video-wrapper">
+            <!-- Removed muted to keep exact PT pattern -->
+            <video id="vsl-video" class="video-player" autoplay playsinline oncontextmenu="return false;">
+                <source src="../images/calistenia.mp4" type="video/mp4">
+            </video>
+            
+            <div class="custom-progress-bg">
+                <div id="custom-progress" class="custom-progress-fill"></div>
+            </div>
+        </div>
+        
+        <!-- VSL Hidden Content -->
+        <div id="vsl-content">
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="margin-top: 2rem; width: 100%; font-size: 1rem;">Obter meu plano personalizado agora</a>
+            <p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem;">Pagamento 100% seguro | Acesso Imediato</p>
+            
+            <ul class="benefits-list">
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Programa prático de treinos</strong> focados na queima de gordura e tonificação sem sobrecarregar as articulações.</div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Cronograma flexível</strong> com 15 a 20 minutos de exercícios em casa por dia, sem precisar de aparelhos.</div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Guia de Alimentação Saudável:</strong> Passo a passo prático de como acelerar o metabolismo sem dietas malucas.</div>
+                </li>
+                <li class="benefit-item">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                    <div><strong>Acesso Imediato pelo App</strong> onde você vai acompanhar seu progresso diário direto do celular.</div>
+                </li>
+            </ul>
+            
+            <img src="../images/app-mockup.webp" alt="Aplicativo no celular" class="mockup-img">
+            
+            <div class="price-box">
+                <div class="price-discount">🔥 74% de desconto apenas HOJE!</div>
+                <div class="price-old">De R$ 147,00 por apenas</div>
+                <div class="price-new"><span style="font-size: 1.5rem;">R$</span>37,90</div>
+                <div class="price-terms">Acesso vitalício | Pagamento único (Não é mensalidade)</div>
+            </div>
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="width: 100%; font-size: 1rem;">Quero transformar meu corpo agora</a>
+            
+            <!-- Testimonials -->
+            <div class="section-title">Resultados reais de mulheres como você</div>
+            
+            <div class="testimonial">
+                <img src="../images/beatriz.webp" alt="Beatriz" class="testimonial-img">
+                <div class="testimonial-name">Beatriz — Perdeu 7kg em 30 dias</div>
+                <div class="testimonial-text">"Eu estava estagnada com meu peso e sem tempo. A Calistenia Asiática me ajudou muito e hoje me sinto muito melhor e disposta, tudo isso treinando só 15 minutinhos por dia na minha sala!"</div>
+            </div>
+            
+            <div class="testimonial">
+                <img src="../images/carla.webp" alt="Carla" class="testimonial-img">
+                <div class="testimonial-name">Carla — Perdeu 5kg e definiu o corpo</div>
+                <div class="testimonial-text">"Nunca pensei que conseguiria resultados tão bons treinando em casa. Minhas pernas e bumbum estão muito mais firmes e a barriga secou bastante. Recomendo para todas!"</div>
+            </div>
+            
+            <div class="testimonial">
+                <img src="../images/fernanda.webp" alt="Fernanda" class="testimonial-img">
+                <div class="testimonial-name">Fernanda — Perdeu 12kg (Sem impacto)</div>
+                <div class="testimonial-text">"Com minha rotina corrida de mãe e trabalho, treinar 15 minutos por dia salvou minha saúde. O método sem impacto cuidou das minhas articulações, já que eu sentia dores no joelho."</div>
+            </div>
+            
+            <div class="testimonial">
+                <img src="../images/juliana.webp" alt="Juliana" class="testimonial-img">
+                <div class="testimonial-name">Juliana — Perdeu 8kg após a gravidez</div>
+                <div class="testimonial-text">"Depois da gravidez, foi a única coisa que funcionou para mim voltar ao meu corpo de antes. A flexibilidade do programa é incrível e o aplicativo é muito fácil de usar."</div>
+            </div>
+            
+            <div class="price-box" style="margin-top: 3rem;">
+                <div class="price-discount">🔥 Vagas promocionais limitadas!</div>
+                <div class="price-old">De R$ 147,00 por apenas</div>
+                <div class="price-new"><span style="font-size: 1.5rem;">R$</span>37,90</div>
+            </div>
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="width: 100%; font-size: 1rem;">Sim! Quero garantir meu plano</a>
+            
+            <!-- Guarantee -->
+            <div class="guarantee-box">
+                <img src="../images/garantia-30.webp" alt="Garantia" class="guarantee-img">
+                <div class="guarantee-title">30 Dias de Garantia Incondicional</div>
+                <div style="font-size: 0.85rem; color: #666; line-height: 1.5;">Se você aplicar o método e por qualquer motivo achar que não é para você, basta nos enviar um email e devolvemos 100% do seu dinheiro, centavo por centavo. Simples assim, risco zero!</div>
+            </div>
+            
+            <!-- FAQ -->
+            <div class="section-title" style="margin-bottom: 1rem;">Dúvidas Frequentes</div>
+            
+            <div class="faq-item">
+                <div class="faq-q">1. Preciso de equipamentos?</div>
+                <div class="faq-a">Não! Todo o programa foi desenvolvido usando apenas o peso do seu próprio corpo. Você pode fazer tudo na sua sala ou no quarto.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">2. É seguro para quem sente dores?</div>
+                <div class="faq-a">Sim. A Calistenia Asiática utiliza movimentos focados e sem impacto, o que poupa suas articulações como joelhos e coluna.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">3. O pagamento é mensalidade?</div>
+                <div class="faq-a">Não! É um pagamento único de R$ 37,90. Você paga uma vez e tem acesso vitalício ao programa.</div>
+            </div>
+            
+            <a href="https://checkout.payt.com.br/261594c911c886be3205204978d1387c" class="btn-pink pulse-btn" style="width: 100%; font-size: 1rem; margin-top: 3rem;">Garantir meu acesso agora</a>
+            <p style="font-size: 0.75rem; color: #999; margin-top: 0.5rem; margin-bottom: 2rem;">Compra segura | SSL | Risco Zero</p>
+            
+        </div>
+        
+    </main>
+
+    <script>
+        const video = document.getElementById('vsl-video');
+        const content = document.getElementById('vsl-content');
+        
+        // Custom Player Elements
+        const progressFill = document.getElementById('custom-progress');
+        
+        // Force play with sound on load
+        window.addEventListener('DOMContentLoaded', function() {
+            video.volume = 1.0;
+            video.play().catch(function(e) {
+                console.log("Autoplay blocked by browser:", e);
+                // If it fails, we try to play it muted as fallback so at least it plays
+                video.muted = true;
+                video.play();
+            });
+        });
+        
+        // Unmute on click if muted, but do not pause
+        video.addEventListener('click', function() {
+            if (video.muted) {
+                video.muted = false;
+                video.currentTime = 0;
+                video.play();
+            }
+        });
+
+        // Update progress bar and show VSL content at 95%
+        video.addEventListener('timeupdate', function() {
+            if (video.duration > 0) {
+                const actualPercentage = video.currentTime / video.duration;
+                let visualPercentage = 0;
+                
+                // Progress bar fills 60% in the first 60 seconds
+                if (video.currentTime <= 60) {
+                    visualPercentage = (video.currentTime / 60) * 0.60;
+                } else {
+                    visualPercentage = 0.60 + ((video.currentTime - 60) / (video.duration - 60)) * 0.40;
+                }
+                
+                progressFill.style.width = (visualPercentage * 100) + '%';
+                
+                // Show VSL content at 5:17 (317 seconds)
+                if (video.currentTime >= 317) { 
+                    if (content.style.display !== 'block') {
+                        content.style.display = 'block';
+                        content.style.animation = 'fadeIn 1s forwards';
+                        
+                        setTimeout(() => {
+                            content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 500);
+                    }
+                }
+            }
+        });
+
+        // Pause video when user leaves the tab, play when returns
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                video.pause();
+            } else {
+                video.play().catch(e => console.log('Autoplay prevented', e));
+            }
+        });
+
+        // Set current date
+        document.querySelectorAll('.current-date').forEach(el => {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            el.textContent = `${dd}/${mm}/${yyyy}`;
+        });
+    </script>
+
+<script src="../js/analytics.js"></script>
+<!-- UTMify: cole antes de </body> em TODAS as páginas da sua landing -->
+<script src="https://utmify.vercel.app/track.js" defer></script>
+</body>
+</html>

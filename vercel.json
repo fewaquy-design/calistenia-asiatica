@@ -1,0 +1,19 @@
+{
+  "name": "calistenia-asiatica",
+  "version": 2,
+  "rewrites": [
+    { "source": "/entregravel/assets/(.*)", "destination": "/build_pt/assets/$1" },
+    { "source": "/entregravel/images/(.*)", "destination": "/build_pt/images/$1" },
+    { "source": "/entregravel/videos/(.*)", "destination": "/build_pt/videos/$1" },
+    { "source": "/entregravel/(.*)", "destination": "/build_pt/index.html" },
+    { "source": "/entregravel", "destination": "/build_pt/index.html" },
+    
+    { "source": "/entregravel-es/assets/(.*)", "destination": "/build_es/assets/$1" },
+    { "source": "/entregravel-es/images/(.*)", "destination": "/build_es/images/$1" },
+    { "source": "/entregravel-es/videos/(.*)", "destination": "/build_es/videos/$1" },
+    { "source": "/entregravel-es/(.*)", "destination": "/build_es/index.html" },
+    { "source": "/entregravel-es", "destination": "/build_es/index.html" },
+    
+    { "source": "/es/(.*)", "destination": "/es/$1" }
+  ]
+}

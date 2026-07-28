@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17948327574"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17948327574');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Calistenia para Mujeres</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .carousel-wrapper {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .carousel-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            width: 33.333%;
+            height: 100%;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: #d64d7a;
+            border-radius: 4px;
+            transition: width 0.1s linear;
+        }
+        .loading-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            min-height: 2rem;
+        }
+        .loading-percentage {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d64d7a;
+            margin-bottom: 1rem;
+        }
+    </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1325230612888990');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1325230612888990&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <!-- UTMify - UTM tracking -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    
+    <!-- UTMify - Meta Pixel -->
+    <script>
+      window.pixelId = "6a4bd1448a171a32aa7d1226";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+</head>
+<body>
+    <header class="hdr">
+        <div class="logo-container" style="margin: 0 auto;">
+            <span class="hdr-logo">CALISTENIA</span>
+            <span class="hdr-badge">by Atlas</span>
+        </div>
+    </header>
+
+    <main class="step5-container" style="padding: 4rem 1rem;">
+        <div class="loading-container">
+            <h1 class="step5-title" style="margin-bottom: 2rem;">Construyendo tu plan...</h1>
+            
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="carousel">
+                    <div class="carousel-slide"><img src="../images/transformation-1.webp" alt="Transformação 1"></div>
+                    <div class="carousel-slide"><img src="../images/transformation-2.webp" alt="Transformação 2"></div>
+                    <div class="carousel-slide"><img src="../images/transformation-3.webp" alt="Transformação 3"></div>
+                </div>
+            </div>
+            
+            <div class="loading-percentage" id="percentage">0%</div>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-fill"></div>
+            </div>
+            
+            <div class="loading-text" id="loading-text">Analizando tus respuestas...</div>
+        </div>
+    </main>
+
+    <script>
+        const totalTime = 9000; // 9 seconds
+        const updateInterval = 50; // update every 50ms
+        let currentTime = 0;
+        
+        const progressBar = document.getElementById('progress-fill');
+        const percentageText = document.getElementById('percentage');
+        const loadingText = document.getElementById('loading-text');
+        const carousel = document.getElementById('carousel');
+        
+        const texts = [
+            "Analizando tus respuestas...",
+            "Calculando tu IMC actual...",
+            "Evaluando perfil metabólico...",
+            "Seleccionando ejercicios...",
+            "Finalizando tu plan personalizado..."
+        ];
+
+        const interval = setInterval(() => {
+            currentTime += updateInterval;
+            let progress = (currentTime / totalTime) * 100;
+            
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+                setTimeout(() => {
+                    window.location.href = 'step30.html';
+                }, 500);
+            }
+            
+            progressBar.style.width = progress + '%';
+            percentageText.textContent = Math.floor(progress) + '%';
+            
+            // Update carousel
+            if (progress < 33) {
+                carousel.style.transform = 'translateX(0%)';
+            } else if (progress < 66) {
+                carousel.style.transform = 'translateX(-33.333%)';
+            } else {
+                carousel.style.transform = 'translateX(-66.666%)';
+            }
+            
+            // Update text
+            const textIndex = Math.floor((progress / 100) * texts.length);
+            loadingText.textContent = texts[Math.min(textIndex, texts.length - 1)];
+            
+        }, updateInterval);
+    </script>
+
+<script src="../js/analytics.js"></script>
+<!-- UTMify: cole antes de </body> em TODAS as páginas da sua landing -->
+<script src="https://utmify.vercel.app/track.js" defer></script>
+</body>
+</html>

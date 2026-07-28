@@ -1,0 +1,473 @@
+/* ═══════════════════════════════════════════════════════════════
+   Dashboard Analytics — Calistenia Asiática
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --brand-green:   #d64d7a; /* Adapted to Pink theme */
+    --brand-mid:     #ea5788;
+    --brand-light:   #ff83af;
+    --brand-pale:    #fdf0f4;
+    --brand-glow:    rgba(214, 77, 122, 0.15);
+    --danger:        #c94040;
+    --danger-light:  #fdeaea;
+    --warn:          #c97b20;
+    --warn-light:    #fdf3e3;
+    --bg:            #f4f6f4;
+    --surface:       #ffffff;
+    --surface-2:     #f9fbf9;
+    --border:        #e2ebe5;
+    --text-primary:  #333333;
+    --text-secondary:#555555;
+    --text-muted:    #888888;
+    --shadow-sm:     0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --shadow-md:     0 4px 16px rgba(0,0,0,.08);
+    --shadow-lg:     0 8px 32px rgba(0,0,0,.10);
+    --radius:        14px;
+    --radius-sm:     8px;
+    --transition:    200ms ease;
+}
+
+html, body { height: 100%; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ─── Auth Overlay ───────────────────────────────────────────── */
+
+#auth-overlay {
+    position: fixed; inset: 0;
+    background: linear-gradient(135deg, var(--brand-green) 0%, #7a1f3c 100%);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity .4s ease;
+}
+#auth-overlay.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+.auth-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px 36px;
+    width: 100%; max-width: 380px;
+    box-shadow: 0 24px 64px rgba(0,0,0,.25);
+    text-align: center;
+    animation: slideUp .4s ease;
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.auth-card .logo-badge {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, var(--brand-mid), var(--brand-light));
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 16px var(--brand-glow);
+}
+.auth-card .logo-badge svg { width: 28px; height: 28px; stroke: white; }
+.auth-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.auth-card p  { color: var(--text-secondary); font-size: 13px; margin-bottom: 28px; }
+
+.auth-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 14px;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    transition: border-color var(--transition);
+    margin-bottom: 12px;
+}
+.auth-input:focus { outline: none; border-color: var(--brand-mid); }
+.auth-input.error { border-color: var(--danger); }
+
+.auth-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--brand-green), var(--brand-mid));
+    color: white;
+    border: none; border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    transition: opacity var(--transition), transform var(--transition);
+}
+.auth-btn:hover  { opacity: .9; transform: translateY(-1px); }
+.auth-btn:active { transform: translateY(0); }
+
+.auth-error {
+    color: var(--danger);
+    font-size: 12px;
+    margin-top: 8px;
+    display: none;
+}
+.auth-error.show { display: block; }
+
+/* ─── App wrapper ────────────────────────────────────────────── */
+
+#app { display: none; min-height: 100vh; }
+#app.visible { display: block; }
+
+/* ─── Header ─────────────────────────────────────────────────── */
+
+.dash-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 28px;
+    display: flex; align-items: center; gap: 20px;
+    position: sticky; top: 0; z-index: 50;
+    box-shadow: var(--shadow-sm);
+}
+.dash-header-left  { flex: 1; }
+.dash-header-label {
+    font-size: 10px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--brand-mid);
+    margin-bottom: 2px;
+}
+.dash-header-title {
+    font-size: 22px; font-weight: 800; color: var(--text-primary);
+    line-height: 1.2;
+}
+.dash-header-sub {
+    font-size: 12px; color: var(--text-muted); margin-top: 2px;
+}
+.dash-header-sub code {
+    background: var(--brand-pale);
+    color: var(--brand-green);
+    padding: 1px 6px; border-radius: 4px; font-size: 11px;
+}
+.dash-actions { display: flex; gap: 10px; }
+
+.btn {
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    cursor: pointer; border: none;
+    transition: opacity var(--transition), transform var(--transition);
+    display: flex; align-items: center; gap: 6px;
+    white-space: nowrap;
+}
+.btn:hover  { opacity: .88; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary  { background: var(--brand-green);     color: white; }
+.btn-danger   { background: var(--danger);           color: white; }
+.btn-outline  {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    color: var(--text-secondary);
+}
+.btn-outline:hover { border-color: var(--brand-mid); color: var(--brand-mid); }
+
+/* ─── Main content ───────────────────────────────────────────── */
+
+.dash-main { padding: 24px 28px; max-width: 1280px; margin: 0 auto; }
+
+/* ─── Period filters ─────────────────────────────────────────── */
+
+.period-bar {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 24px; flex-wrap: wrap;
+}
+.period-label {
+    font-size: 13px; font-weight: 600; color: var(--text-secondary);
+    margin-right: 4px;
+}
+.period-btn {
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+.period-btn:hover { border-color: var(--brand-mid); color: var(--brand-mid); }
+.period-btn.active {
+    background: var(--brand-green);
+    border-color: var(--brand-green);
+    color: white;
+    font-weight: 600;
+}
+
+/* custom date range */
+.custom-range {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+}
+.custom-range.show { display: flex; }
+.custom-range input[type="date"] {
+    border: none; background: transparent;
+    font-family: inherit; font-size: 12px; color: var(--text-primary);
+    outline: none;
+}
+.custom-range span { color: var(--text-muted); font-size: 12px; }
+
+/* ─── Stats grid (top row) ───────────────────────────────────── */
+
+.stats-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition), transform var(--transition);
+    position: relative; overflow: hidden;
+}
+.stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.stat-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--brand-green), var(--brand-light));
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+.stat-card:hover::before { opacity: 1; }
+
+.stat-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 10px;
+}
+.stat-value {
+    font-size: 32px; font-weight: 800; color: var(--text-primary);
+    line-height: 1; letter-spacing: -.02em;
+}
+.stat-sub {
+    font-size: 11px; color: var(--text-muted); margin-top: 6px;
+}
+
+.stat-card.highlight .stat-value { color: var(--brand-green); }
+.stat-card.warn-card .stat-value  { color: var(--warn); }
+.stat-card.danger-card .stat-value{ color: var(--danger); }
+
+/* icon in corner */
+.stat-icon {
+    position: absolute; right: 16px; top: 16px;
+    width: 36px; height: 36px;
+    background: var(--brand-pale);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+}
+
+/* ─── Funnel section ─────────────────────────────────────────── */
+
+.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 20px;
+}
+.section-title {
+    font-size: 16px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+}
+.section-title .badge {
+    background: var(--brand-pale);
+    color: var(--brand-green);
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 20px;
+}
+
+/* funnel rows */
+.funnel-row {
+    display: grid;
+    grid-template-columns: 24px 200px 1fr 100px;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--bg);
+    transition: background var(--transition);
+    border-radius: var(--radius-sm);
+}
+.funnel-row:last-child { border-bottom: none; }
+.funnel-row:hover { background: var(--surface-2); }
+
+.funnel-index {
+    font-size: 11px; color: var(--text-muted);
+    font-weight: 600; text-align: right;
+}
+.funnel-name {
+    font-size: 13px; color: var(--text-primary); font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.funnel-bar-wrap {
+    background: var(--bg);
+    border-radius: 6px;
+    height: 14px;
+    overflow: hidden;
+}
+.funnel-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--brand-green), var(--brand-light));
+    border-radius: 6px;
+    transition: width .6s cubic-bezier(.25,.8,.25,1);
+    min-width: 2px;
+}
+.funnel-bar-fill.checkout {
+    background: linear-gradient(90deg, #c94040, #e05555);
+}
+.funnel-count {
+    font-size: 12px; font-weight: 600; color: var(--text-secondary);
+    text-align: right;
+    white-space: nowrap;
+}
+.funnel-count .pct {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* ─── Empty/loading state ────────────────────────────────────── */
+
+.state-box {
+    text-align: center; padding: 48px 24px;
+    color: var(--text-muted);
+}
+.state-box .state-icon { font-size: 40px; margin-bottom: 12px; }
+.state-box p { font-size: 14px; }
+
+/* loading spinner */
+.spinner {
+    width: 32px; height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--brand-mid);
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+    margin: 0 auto 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Toast notification ─────────────────────────────────────── */
+
+.toast {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--text-primary);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 13px; font-weight: 500;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all .3s cubic-bezier(.25,.8,.25,1);
+    z-index: 999;
+    max-width: 320px;
+}
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+.toast.success { background: var(--brand-green); }
+.toast.error   { background: var(--danger); }
+
+/* ─── Confirm modal ──────────────────────────────────────────── */
+
+.modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 900;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s;
+}
+.modal-backdrop.open { opacity: 1; pointer-events: all; }
+
+.modal {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 28px 28px 24px;
+    width: 100%; max-width: 360px;
+    box-shadow: var(--shadow-lg);
+    transform: scale(.95);
+    transition: transform .2s;
+}
+.modal-backdrop.open .modal { transform: scale(1); }
+.modal h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.modal p  { font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+/* ─── Config banner ──────────────────────────────────────────── */
+
+.config-banner {
+    background: var(--warn-light);
+    border: 1.5px solid var(--warn);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: var(--warn);
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+.config-banner.show { display: flex; }
+.config-banner strong { font-weight: 700; }
+
+/* ─── Leads Table ────────────────────────────────────────────── */
+
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+.leads-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.leads-table th, .leads-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-primary);
+}
+.leads-table th {
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+.leads-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 680px) {
+    .dash-header { padding: 14px 16px; flex-wrap: wrap; gap: 12px; }
+    .dash-actions .btn span { display: none; }
+    .dash-main { padding: 16px; }
+    .funnel-row { grid-template-columns: 20px 130px 1fr 80px; }
+    .funnel-name { font-size: 12px; }
+    .stat-value { font-size: 26px; }
+}

@@ -1,0 +1,25 @@
+@tailwind base;
+.dummy-hash-force-1 { color: red; }
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #d64d7a;
+  --color-primary-dark: #b83860;
+  --color-bg-light: #fafafa;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+  color: #1a1a1a;
+}
+
+
+
+@layer base {
+  body {
+    @apply bg-[var(--color-bg-light)] text-[var(--color-text-dark)] font-sans antialiased;
+  }
+}
