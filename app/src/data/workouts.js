@@ -36,7 +36,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -46,7 +47,8 @@ export const weeks = [
           },
           {
             "name": "Flexão na Parede",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Flexao_de_Parede.mp4",
             "description": "Flexão apoiada na parede, excelente para iniciantes desenvolverem força no peitoral.",
             "tags": [
@@ -66,7 +68,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -76,7 +79,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "30s",
+            "reps": "20x",
+            "duration": 30,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -86,7 +90,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -106,7 +111,8 @@ export const weeks = [
           },
           {
             "name": "Afundo Crescente",
-            "reps": "30s",
+            "reps": "12x",
+            "duration": 30,
             "video": "/entregravel/videos/Afundo_Crescente.mp4",
             "description": "Afundo mantido em isometria com alongamento crescente para flexibilidade.",
             "tags": [
@@ -740,7 +746,7 @@ export const weeks = [
           },
           {
             "name": "Polichinelo Leque",
-            "reps": "40s",
+            "reps": "45s",
             "video": "/entregravel/videos/polichinelo.mp4",
             "description": "Pulos suaves com movimentos amplos dos braços, ativando circulação.",
             "tags": [
@@ -750,7 +756,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -780,7 +787,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -790,7 +798,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -800,7 +809,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -820,7 +830,8 @@ export const weeks = [
           },
           {
             "name": "Chute Traseiro Rítmico",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Chutes para trás alternados, fortalecendo glúteos e melhorando mobilidade.",
             "tags": [
@@ -858,7 +869,7 @@ export const weeks = [
           },
           {
             "name": "Polichinelo Leque",
-            "reps": "40s",
+            "reps": "45s",
             "video": "/entregravel/videos/polichinelo.mp4",
             "description": "Pulos suaves com movimentos amplos dos braços, ativando circulação.",
             "tags": [
@@ -868,7 +879,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -898,7 +910,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -908,7 +921,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -918,7 +932,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -938,7 +953,8 @@ export const weeks = [
           },
           {
             "name": "Chute Traseiro Rítmico",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Chutes para trás alternados, fortalecendo glúteos e melhorando mobilidade.",
             "tags": [
@@ -976,7 +992,7 @@ export const weeks = [
           },
           {
             "name": "Polichinelo Leque",
-            "reps": "40s",
+            "reps": "45s",
             "video": "/entregravel/videos/polichinelo.mp4",
             "description": "Pulos suaves com movimentos amplos dos braços, ativando circulação.",
             "tags": [
@@ -986,7 +1002,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1016,7 +1033,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1026,7 +1044,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1036,7 +1055,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1056,7 +1076,8 @@ export const weeks = [
           },
           {
             "name": "Chute Traseiro Rítmico",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Chutes para trás alternados, fortalecendo glúteos e melhorando mobilidade.",
             "tags": [
@@ -1094,7 +1115,7 @@ export const weeks = [
           },
           {
             "name": "Polichinelo Leque",
-            "reps": "40s",
+            "reps": "45s",
             "video": "/entregravel/videos/polichinelo.mp4",
             "description": "Pulos suaves com movimentos amplos dos braços, ativando circulação.",
             "tags": [
@@ -1104,7 +1125,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1134,7 +1156,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1144,7 +1167,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1154,7 +1178,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1174,7 +1199,8 @@ export const weeks = [
           },
           {
             "name": "Chute Traseiro Rítmico",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Chutes para trás alternados, fortalecendo glúteos e melhorando mobilidade.",
             "tags": [
@@ -1212,7 +1238,7 @@ export const weeks = [
           },
           {
             "name": "Polichinelo Leque",
-            "reps": "40s",
+            "reps": "45s",
             "video": "/entregravel/videos/polichinelo.mp4",
             "description": "Pulos suaves com movimentos amplos dos braços, ativando circulação.",
             "tags": [
@@ -1222,7 +1248,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1252,7 +1279,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1262,7 +1290,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1272,7 +1301,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1292,7 +1322,8 @@ export const weeks = [
           },
           {
             "name": "Chute Traseiro Rítmico",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Chutes para trás alternados, fortalecendo glúteos e melhorando mobilidade.",
             "tags": [
@@ -1330,7 +1361,7 @@ export const weeks = [
           },
           {
             "name": "Polichinelo Leque",
-            "reps": "40s",
+            "reps": "45s",
             "video": "/entregravel/videos/polichinelo.mp4",
             "description": "Pulos suaves com movimentos amplos dos braços, ativando circulação.",
             "tags": [
@@ -1340,7 +1371,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1370,7 +1402,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1380,7 +1413,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1390,7 +1424,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1410,7 +1445,8 @@ export const weeks = [
           },
           {
             "name": "Chute Traseiro Rítmico",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Chutes para trás alternados, fortalecendo glúteos e melhorando mobilidade.",
             "tags": [
@@ -1448,7 +1484,7 @@ export const weeks = [
           },
           {
             "name": "Polichinelo Leque",
-            "reps": "40s",
+            "reps": "45s",
             "video": "/entregravel/videos/polichinelo.mp4",
             "description": "Pulos suaves com movimentos amplos dos braços, ativando circulação.",
             "tags": [
@@ -1458,7 +1494,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1488,7 +1525,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1498,7 +1536,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1508,7 +1547,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1528,7 +1568,8 @@ export const weeks = [
           },
           {
             "name": "Chute Traseiro Rítmico",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Chutes para trás alternados, fortalecendo glúteos e melhorando mobilidade.",
             "tags": [
@@ -1574,7 +1615,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -1604,7 +1646,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1624,7 +1667,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1634,7 +1678,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1654,7 +1699,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1702,7 +1748,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -1732,7 +1779,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1752,7 +1800,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1762,7 +1811,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1782,7 +1832,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1830,7 +1881,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -1860,7 +1912,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -1880,7 +1933,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -1890,7 +1944,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -1910,7 +1965,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -1958,7 +2014,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -1988,7 +2045,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -2008,7 +2066,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -2018,7 +2077,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -2038,7 +2098,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -2086,7 +2147,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -2116,7 +2178,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -2136,7 +2199,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -2146,7 +2210,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -2166,7 +2231,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -2214,7 +2280,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -2244,7 +2311,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -2264,7 +2332,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -2274,7 +2343,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -2294,7 +2364,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [
@@ -2342,7 +2413,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Agachamento profundo focando no equilíbrio e no fortalecimento das pernas e glúteos.",
             "tags": [
@@ -2372,7 +2444,8 @@ export const weeks = [
           },
           {
             "name": "Agachamento Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Deslocamento lateral em posição de agachamento, focando em pernas e glúteos.",
             "tags": [
@@ -2392,7 +2465,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimento contínuo de bicicleta no chão, ativando o abdômen e oblíquos.",
             "tags": [
@@ -2402,7 +2476,8 @@ export const weeks = [
           },
           {
             "name": "Elevação de Perna Bambu",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevação de pernas alternada, focada em ativar a parte inferior do abdômen.",
             "tags": [
@@ -2422,7 +2497,8 @@ export const weeks = [
           },
           {
             "name": "Elevação Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevação do quadril ativando glúteos e posterior de coxa de forma fluida.",
             "tags": [

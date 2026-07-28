@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Moon, Play, Flame, TrendingUp, Clock, Scale, ChevronRight, Activity, BookOpen, Gift } from 'lucide-react';
+import { Moon, Play, Flame, TrendingUp, Clock, Scale, ChevronRight, Activity, BookOpen, Gift, Lock } from 'lucide-react';
 import { weeks } from '../data/workouts';
 
 export default function Home() {
@@ -39,6 +39,31 @@ export default function Home() {
       break;
     }
   }
+
+  const base = import.meta.env.BASE_URL;
+
+  const quickUpsells = [
+    {
+      id: 1,
+      image: `${base}images/aceleradorDetox.png`,
+      title: 'Acelerador Detox',
+      subtitle: 'Desbloquea ahora y acelera tus resultados',
+      badge: '🌿 Exclusivo',
+      badgeColor: 'bg-emerald-500',
+      bgColor: 'from-emerald-600 to-emerald-950',
+      url: 'https://huggy-dialogue-flow.lovable.app/',
+    },
+    {
+      id: 2,
+      image: `${base}images/truqueColher.png`,
+      title: 'Truco de la Cuchara Coreana',
+      subtitle: 'Secreto asiático para adelgazar más rápido',
+      badge: '🌸 Asiático',
+      badgeColor: 'bg-pink-500',
+      bgColor: 'from-pink-500 to-rose-900',
+      url: '/es/pages/truquedacolher.html',
+    },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen pb-6">
@@ -300,10 +325,54 @@ export default function Home() {
       </div>
 
       {/* Quick Links */}
-      <div className="px-6 space-y-3">
+      <div className="px-6 space-y-3 mb-6">
         <QuickLink icon={<Activity size={20} className="text-orange-500" />} title="Actividad Extra" subtitle="Acelera tus resultados (opcional)" />
         <QuickLink icon={<BookOpen size={20} className="text-primary" />} title="Filosofía del Entrenamiento" subtitle="Entiende nuestra metodología" />
         <QuickLink icon={<Gift size={20} className="text-pink-500" />} title="Bonos y Contenidos" subtitle="Materiales extra exclusivos" />
+      </div>
+
+      {/* Mini Upsells at bottom */}
+      <div className="px-6 pb-24">
+        <h3 className="font-bold text-gray-800 mb-4">Recomendaciones para ti</h3>
+        <div className="grid grid-cols-2 gap-2">
+          {quickUpsells.map((item) => (
+            <div key={item.id} className="flex flex-col">
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full h-[140px] rounded-2xl relative overflow-hidden shadow-sm transition-transform active:scale-[0.98] bg-gradient-to-b ${item.bgColor}`}
+              >
+                {/* Background image */}
+                <div className="absolute inset-0">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                </div>
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                {/* Badge */}
+                <div className="absolute top-1.5 left-1.5 z-10">
+                  <span className={`${item.badgeColor} text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full`}>{item.badge}</span>
+                </div>
+                {/* Lock icon */}
+                <div className="absolute inset-0 flex items-center justify-center z-10 pb-8">
+                  <div className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                    <Lock size={14} className="text-white" />
+                  </div>
+                </div>
+                {/* Content bottom */}
+                <div className="absolute bottom-0 left-0 right-0 z-10 p-2">
+                  <p className="text-white font-bold text-[10px] leading-tight">{item.title}</p>
+                  <p className="text-white/70 text-[8px] leading-tight line-clamp-1">{item.subtitle}</p>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -45,11 +45,13 @@ export default function WorkoutDay() {
     if (!dayData || isFinished) return;
     
     const ex = dayData.exercises[currentIndex];
-    let seconds = 30; // default
-    if (ex.reps.includes('s')) {
-      seconds = parseInt(ex.reps.replace('s', ''));
-    } else if (ex.reps.includes('x')) {
-      seconds = parseInt(ex.reps.replace('x', '')) * 3; // roughly 3 seconds per rep
+    let seconds = ex.duration || 30; // default
+    if (!ex.duration) {
+      if (ex.reps.includes('s')) {
+        seconds = parseInt(ex.reps.replace('s', ''));
+      } else if (ex.reps.includes('x')) {
+        seconds = parseInt(ex.reps.replace('x', '')) * 3; // roughly 3 seconds per rep if no duration provided
+      }
     }
     
     setTimeLeft(seconds);
@@ -196,6 +198,7 @@ export default function WorkoutDay() {
            <h2 className="text-2xl font-bold mb-1 text-white drop-shadow-md">{currentEx.name}</h2>
            <p className="text-gray-300 font-bold text-[14px] uppercase tracking-widest">
              {currentEx.reps} {currentEx.reps.includes('x') ? 'REPETIÇÕES' : 'SEGUNDOS'}
+             {currentEx.duration && currentEx.reps.includes('x') ? ` • ${currentEx.duration} SEG` : ''}
            </p>
            <p className="text-primary font-bold text-[11px] uppercase tracking-widest mt-0.5">
              DECORRIDO

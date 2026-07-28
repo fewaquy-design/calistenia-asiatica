@@ -36,7 +36,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -46,7 +47,8 @@ export const weeks = [
           },
           {
             "name": "Flexión en la Pared",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Flexao_de_Parede.mp4",
             "description": "Flexión apoyada en la pared, excelente para que principiantes desarrollen fuerza en el pectoral.",
             "tags": [
@@ -66,7 +68,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -76,7 +79,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "30s",
+            "reps": "20x",
+            "duration": 30,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -86,7 +90,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "30s",
+            "reps": "15x",
+            "duration": 30,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -106,7 +111,8 @@ export const weeks = [
           },
           {
             "name": "Estocada Creciente",
-            "reps": "30s",
+            "reps": "12x",
+            "duration": 30,
             "video": "/entregravel/videos/Afundo_Crescente.mp4",
             "description": "Estocada mantenida en isometría con estiramiento creciente para la flexibilidad.",
             "tags": [
@@ -750,7 +756,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -780,7 +787,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -790,7 +798,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -800,7 +809,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -820,7 +830,8 @@ export const weeks = [
           },
           {
             "name": "Patada Trasera Rítmica",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Patadas hacia atrás alternadas, fortaleciendo los glúteos y mejorando la movilidad.",
             "tags": [
@@ -868,7 +879,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -898,7 +910,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -908,7 +921,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -918,7 +932,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -938,7 +953,8 @@ export const weeks = [
           },
           {
             "name": "Patada Trasera Rítmica",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Patadas hacia atrás alternadas, fortaleciendo los glúteos y mejorando la movilidad.",
             "tags": [
@@ -986,7 +1002,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1016,7 +1033,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1026,7 +1044,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1036,7 +1055,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1056,7 +1076,8 @@ export const weeks = [
           },
           {
             "name": "Patada Trasera Rítmica",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Patadas hacia atrás alternadas, fortaleciendo los glúteos y mejorando la movilidad.",
             "tags": [
@@ -1104,7 +1125,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1134,7 +1156,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1144,7 +1167,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1154,7 +1178,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1174,7 +1199,8 @@ export const weeks = [
           },
           {
             "name": "Patada Trasera Rítmica",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Patadas hacia atrás alternadas, fortaleciendo los glúteos y mejorando la movilidad.",
             "tags": [
@@ -1222,7 +1248,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1252,7 +1279,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1262,7 +1290,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1272,7 +1301,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1292,7 +1322,8 @@ export const weeks = [
           },
           {
             "name": "Patada Trasera Rítmica",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Patadas hacia atrás alternadas, fortaleciendo los glúteos y mejorando la movilidad.",
             "tags": [
@@ -1340,7 +1371,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1370,7 +1402,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1380,7 +1413,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1390,7 +1424,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1410,7 +1445,8 @@ export const weeks = [
           },
           {
             "name": "Patada Trasera Rítmica",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Patadas hacia atrás alternadas, fortaleciendo los glúteos y mejorando la movilidad.",
             "tags": [
@@ -1458,7 +1494,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "40s",
+            "reps": "16x",
+            "duration": 40,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1488,7 +1525,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1498,7 +1536,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1508,7 +1547,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "40s",
+            "reps": "15x",
+            "duration": 40,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1528,7 +1568,8 @@ export const weeks = [
           },
           {
             "name": "Patada Trasera Rítmica",
-            "reps": "40s",
+            "reps": "20x",
+            "duration": 40,
             "video": "/entregravel/videos/chuteTraseiro.mp4",
             "description": "Patadas hacia atrás alternadas, fortaleciendo los glúteos y mejorando la movilidad.",
             "tags": [
@@ -1574,7 +1615,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -1604,7 +1646,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1624,7 +1667,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1634,7 +1678,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1654,7 +1699,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1702,7 +1748,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -1732,7 +1779,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1752,7 +1800,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1762,7 +1811,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1782,7 +1832,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1830,7 +1881,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -1860,7 +1912,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -1880,7 +1933,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -1890,7 +1944,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -1910,7 +1965,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -1958,7 +2014,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -1988,7 +2045,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -2008,7 +2066,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -2018,7 +2077,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -2038,7 +2098,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -2086,7 +2147,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -2116,7 +2178,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -2136,7 +2199,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -2146,7 +2210,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -2166,7 +2231,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -2214,7 +2280,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -2244,7 +2311,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -2264,7 +2332,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -2274,7 +2343,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -2294,7 +2364,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
@@ -2342,7 +2413,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Templo",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Agachamento_Templo.mp4",
             "description": "Sentadilla profunda enfocándose en el equilibrio y el fortalecimiento de las piernas y glúteos.",
             "tags": [
@@ -2372,7 +2444,8 @@ export const weeks = [
           },
           {
             "name": "Sentadilla Lateral Deslizante",
-            "reps": "45s",
+            "reps": "16x",
+            "duration": 45,
             "video": "/entregravel/videos/agachamentoLateral.mp4",
             "description": "Desplazamiento lateral en posición de sentadilla, enfocado en piernas y glúteos.",
             "tags": [
@@ -2392,7 +2465,8 @@ export const weeks = [
           },
           {
             "name": "Abdominal Bicicleta Fluido",
-            "reps": "45s",
+            "reps": "20x",
+            "duration": 45,
             "video": "/entregravel/videos/Abdominal_Bicicleta_Fluido.mp4",
             "description": "Movimiento continuo de bicicleta en el suelo, activando el abdomen y los oblicuos.",
             "tags": [
@@ -2402,7 +2476,8 @@ export const weeks = [
           },
           {
             "name": "Elevación de Pierna Bambú",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_de_Perna_Bambu.mp4",
             "description": "Elevación de piernas alternada, enfocada en activar la parte inferior del abdomen.",
             "tags": [
@@ -2422,7 +2497,8 @@ export const weeks = [
           },
           {
             "name": "Elevación Pélvica Fluida",
-            "reps": "45s",
+            "reps": "15x",
+            "duration": 45,
             "video": "/entregravel/videos/Elevacao_Pelvica_Fluida.mp4",
             "description": "Elevación de cadera activando glúteos y la parte posterior del muslo de forma fluida.",
             "tags": [
