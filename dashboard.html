@@ -408,9 +408,9 @@ function renderLeads() {
     let html = '';
     paginatedLeads.forEach(lead => {
         const date = new Date(lead.timestamp).toLocaleString('pt-BR');
-        const idade = lead['userIdade'] || '—';
+        const idade = lead['age-input'] || lead['Qual é a sua idade?'] || '—';
         const peso = lead['userWeight'] ? lead['userWeight'] + ' kg' : '—';
-        const objetivo = lead['userTargetWeight'] ? lead['userTargetWeight'] + ' kg' : '—';
+        const objetivo = lead['Qual é seu principal objetivo?'] || lead['Objetivo'] || '—';
         const leadStr = encodeURIComponent(JSON.stringify(lead));
         
         html += `
@@ -437,7 +437,7 @@ window.showLeadDetails = function(encodedStr) {
         const lead = JSON.parse(decodeURIComponent(encodedStr));
         let html = '<ul style="list-style: none; padding: 0; margin: 0;">';
         for (const [key, val] of Object.entries(lead)) {
-            if (key !== 'sessionId' && key !== 'timestamp') {
+            if (key !== 'sessionId' && key !== 'timestamp' && !isTechnicalKey(key)) {
                 html += `<li style="margin-bottom: 12px; border-bottom: 1px solid #eaeaea; padding-bottom: 8px;">
                             <strong style="color: #d64d7a; display: block; font-size: 12px; margin-bottom: 4px;">${key}</strong>
                             <span style="font-size: 14px; color: #333; font-weight: 500;">${val || '—'}</span>
@@ -559,6 +559,32 @@ document.getElementById('btn-next-page').addEventListener('click', () => {
     renderLeads();
 });
 
+function isTechnicalKey(key) {
+    if (key === 'timestamp') return false;
+    
+    // Filtra chaves de sistema e rastreamento
+    if (key.startsWith('_')) return true; // _lovable_anon_id, _gcl_ls
+    if (key.startsWith('hub')) return true;
+    if (key.startsWith('atlas')) return true; 
+    if (key.startsWith('calistenia_')) return true; 
+    if (key.startsWith('utmify')) return true; // utmify_data
+    if (key.endsWith('_exp')) return true; // utm_campaign_exp, etc.
+    
+    const technical = [
+        'fbc', 'fbp', 'Origin', 'dash_auth', 'gclid', 'fbclid', 
+        'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+        'fbcEbpOrigin', 'multiFbc', 'lead', 'lastExternalReferrer', 'lastExternalReferrerTime',
+        'sessionId', 'extendedvaluekey', 'loglevel'
+    ];
+    
+    if (technical.includes(key)) return true;
+    
+    const partials = ['resume', 'vturb', 'binance', 'ethereum', 'smartautoplay', 'headline-', 'watched_time', 'expire_mixin', 'trust:cache', 'alreadyElsDisplayed', 'isAuthenticated'];
+    if (partials.some(p => key.toLowerCase().includes(p.toLowerCase()))) return true;
+
+    return false;
+}
+
 // Export event listeners
 document.getElementById('btn-export-csv').addEventListener('click', () => {
     const filteredLeads = filterByPeriod(allLeads);
@@ -569,7 +595,11 @@ document.getElementById('btn-export-csv').addEventListener('click', () => {
 
     const allKeys = new Set();
     filteredLeads.forEach(lead => {
-        Object.keys(lead).forEach(k => allKeys.add(k));
+        Object.keys(lead).forEach(k => {
+            if (!isTechnicalKey(k)) {
+                allKeys.add(k);
+            }
+        });
     });
     
     const header = Array.from(allKeys).sort((a, b) => {
@@ -585,6 +615,12 @@ document.getElementById('btn-export-csv').addEventListener('click', () => {
     filteredLeads.forEach(lead => {
         const row = header.map(k => {
             let val = lead[k];
+            // Format timestamp for better readability in Excel
+            if (k === 'timestamp' && val) {
+                try {
+                    val = new Date(val).toLocaleString('pt-BR');
+                } catch(e) {}
+            }
             if (val === undefined || val === null) val = '';
             val = String(val).replace(/"/g, '""');
             if (val.search(/("|,|\n)/g) >= 0) {
@@ -612,7 +648,17 @@ document.getElementById('btn-export-json').addEventListener('click', () => {
         return;
     }
 
-    const jsonContent = JSON.stringify(filteredLeads, null, 2);
+    const cleanLeads = filteredLeads.map(lead => {
+        const clean = {};
+        Object.keys(lead).forEach(k => {
+            if (!isTechnicalKey(k)) {
+                clean[k] = lead[k];
+            }
+        });
+        return clean;
+    });
+
+    const jsonContent = JSON.stringify(cleanLeads, null, 2);
     const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');

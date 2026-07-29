@@ -111,10 +111,38 @@
         },
 
         saveLead: function (leadData) {
+            var dataToSave = leadData;
+            if (!dataToSave) {
+                dataToSave = {};
+                for (var i = 0; i < localStorage.length; i++) {
+                    var k = localStorage.key(i);
+                    if (k !== 'calistenia_session_id' && k !== 'dash_auth') {
+                        dataToSave[k] = localStorage.getItem(k);
+                    }
+                }
+            }
+            
+            // Identifica conclusão ou abandono
+            var currentPage = getCurrentPage();
+            dataToSave['Última Página'] = currentPage;
+            if (currentPage.includes('step34') || currentPage.includes('step35') || currentPage.includes('truquedacolher')) {
+                dataToSave['Status do Quiz'] = 'Concluído';
+            } else {
+                dataToSave['Status do Quiz'] = 'Abandonado (Incompleto)';
+            }
+
+            var sanitizedData = {};
+            for (var key in dataToSave) {
+                if (dataToSave.hasOwnProperty(key)) {
+                    var safeKey = key.replace(/[.#$\[\]\/]/g, '');
+                    sanitizedData[safeKey] = dataToSave[key];
+                }
+            }
+            
             var payload = Object.assign({
                 sessionId: getOrCreateSessionId(),
                 timestamp: Date.now()
-            }, leadData || {});
+            }, sanitizedData);
 
             if (!isConfigured()) return;
 
@@ -122,7 +150,8 @@
             fetch(FIREBASE_DATABASE_URL + '/calistenia_leads/' + sid + '.json', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(payload),
+                keepalive: true
             }).catch(function (err) {
                 console.warn('[QuizAnalytics] Falha ao salvar lead:', err.message);
             });
@@ -167,6 +196,9 @@
     var filename = getCurrentPage().replace('.html', '');
     if (filename === '') filename = 'index';
     window.QuizAnalytics.track('step_view', { stepId: filename });
+    
+    // Auto-save lead incrementally
+    window.QuizAnalytics.saveLead();
 
     // Auto-capture quiz answers dynamically
     document.addEventListener('click', function(e) {
@@ -176,56 +208,86 @@
             
             var cls = target.className || '';
             var isNextBtn = cls.includes('btn-pink') || cls.includes('next-btn') || target.innerText.toLowerCase().includes('próximo') || target.innerText.toLowerCase().includes('continuar');
-            var isSingleOption = (cls.includes('option-') || cls.includes('card-')) && !cls.includes('option-multi') && !isNextBtn;
+            
+            var isSingleOption = !isNextBtn && !cls.includes('option-multi') && (
+                target.tagName.toLowerCase() === 'button' ||
+                target.tagName.toLowerCase() === 'a' ||
+                cls.includes('option-') ||
+                cls.includes('card-') ||
+                cls.includes('btn')
+            );
             
             var h1 = document.querySelector('h1');
-            var question = h1 ? h1.innerText.trim() : '';
+            var question = h1 ? h1.innerText.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim() : '';
             if (!question) return; // Se não tem pergunta na tela, ignora.
 
             if (isSingleOption) {
-                var answer = target.innerText.trim().replace(/\s+/g, ' ');
+                var answer = target.innerText.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim();
                 if (!answer) {
                     var img = target.querySelector('img');
                     if (img && img.alt) answer = img.alt;
                 }
                 if (answer) {
                     localStorage.setItem(question, answer);
+                    window.QuizAnalytics.saveLead();
                 }
             } else if (isNextBtn) {
+                var hasAnswer = false;
+                var requiresAnswer = false;
+
                 // Multi-select options
-                var selectedOptions = document.querySelectorAll('.option-multi.selected, .card-item.selected, .item-option.selected');
-                if (selectedOptions.length > 0) {
-                    var answers = Array.from(selectedOptions).map(function(opt) {
-                        var text = opt.innerText.trim().replace(/\s+/g, ' ');
-                        if (!text) {
-                            var img = opt.querySelector('img');
-                            if (img && img.alt) text = img.alt;
+                var multiSelectContainers = document.querySelectorAll('.option-multi, .card-item, .item-option');
+                if (multiSelectContainers.length > 0) {
+                    requiresAnswer = true;
+                    var selectedOptions = document.querySelectorAll('.option-multi.selected, .card-item.selected, .item-option.selected');
+                    if (selectedOptions.length > 0) {
+                        hasAnswer = true;
+                        var answers = Array.from(selectedOptions).map(function(opt) {
+                            var text = opt.innerText.trim().replace(/\s+/g, ' ');
+                            if (!text) {
+                                var img = opt.querySelector('img');
+                                if (img && img.alt) text = img.alt;
+                            }
+                            return text;
+                        }).filter(Boolean);
+                        
+                        if (answers.length > 0) {
+                            localStorage.setItem(question, answers.join(', '));
+                            window.QuizAnalytics.saveLead();
                         }
-                        return text;
-                    }).filter(Boolean);
-                    
-                    if (answers.length > 0) {
-                        localStorage.setItem(question, answers.join(', '));
                     }
                 }
                 
                 // Inputs (text, number)
                 var inputs = document.querySelectorAll('input:not([type="hidden"]), select, textarea');
                 if (inputs.length > 0) {
+                    requiresAnswer = true;
                     inputs.forEach(function(input) {
-                        if (input.value && input.type !== 'radio' && input.type !== 'checkbox') {
+                        if (input.value && input.value.trim() !== '' && input.type !== 'radio' && input.type !== 'checkbox') {
+                            hasAnswer = true;
                             var key = input.id || input.name || question;
                             localStorage.setItem(key, input.value);
+                            window.QuizAnalytics.saveLead();
                         } else if ((input.type === 'radio' || input.type === 'checkbox') && input.checked) {
+                            hasAnswer = true;
                             var key = input.name || question;
                             localStorage.setItem(key, input.value);
+                            window.QuizAnalytics.saveLead();
                         }
                     });
+                }
+
+                // VALIDAÇÃO: Se exige resposta e não foi preenchido
+                if (requiresAnswer && !hasAnswer) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert('Por favor, preencha ou selecione uma opção para continuar.');
+                    return;
                 }
             }
         } catch (err) {
             console.warn('[QuizAnalytics] Erro ao auto-capturar resposta:', err);
         }
-    });
+    }, true);
 
 })();
